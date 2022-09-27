@@ -1,2 +1,2 @@
-# Pokedex
- Pokedex written in Python
+# Digivice
+ Digivice app written in Python using flask and DAPI

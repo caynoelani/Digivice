@@ -3,8 +3,12 @@ from flask import redirect, render_template, session
 from flask_app.models import user_model, digimon_model
 
 @app.route('/')
-def index():
+def render_index():
     return render_template('index.html', view = 'index')
+
+@app.route('/home')
+def render_home():
+    return redirect('/')
 
 @app.route('/favorites')
 def favorites():

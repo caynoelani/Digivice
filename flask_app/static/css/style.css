@@ -162,17 +162,27 @@ section {
     color: var(--color-secondary);
 }
 
-.index__form-submit {
-    height: 2rem;
-    width: 2rem;
-    border: none;
-    background-color: var(--color-accent);
-    color: var(--color-primary);
-    border-radius: .25rem;
+.index__form-subtext {
+    margin-top: .5rem;
 }
 
-.index__form-subtext {
-    margin-top: 1rem;
+.btn {
+    border: none;
+    height: 2rem;
+    padding: .5rem;
+    border-radius: .25rem;
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+.btn-submit {
+    width: 2rem;
+}
+
+.btn-surprise {
+    margin-top: 2rem;
+    text-transform: uppercase;
 }
 
 

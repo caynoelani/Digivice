@@ -127,6 +127,14 @@ img {
     background-image: url('../assets/img/digimon-tamers.avif');
 }
 
+.header__hero-about {
+    background-image: url('../assets/img/digimon-about.jpg');
+}
+
+.header__hero-catalogue {
+    background-image: url('../assets/img/digimon-catalogue.jpg');
+}
+
 @media screen and (min-width: 768px) {
     .nav__mobile {
         display: none;

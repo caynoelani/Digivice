@@ -50,7 +50,6 @@ img {
     display: block;
 }
 
-
 /* LAYOUT */
 .container {
     margin: 0 auto;
@@ -61,6 +60,15 @@ img {
 .title-primary {
     font-family: var(--font-family-title-primary);
     font-size: var(--font-size-title-primary);
+    color: var(--color-accent)
+}
+
+.title-secondary {
+    font-size: var(--font-size-title-secondary);
+}
+
+section {
+    margin-top: 2rem;
 }
 
 /* NAV */
@@ -135,10 +143,44 @@ img {
     background-image: url('../assets/img/digimon-catalogue.jpg');
 }
 
-/* FOOTER */
+/* MAIN */
+.index__form-container {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    margin-top: .5rem;
+    padding: 2rem;
+}
 
+.index__form-searchbar, .index__form-searchbar:focus {
+    margin-top: .25rem;
+    padding: 0 .5rem;
+    line-height: 2rem;
+    width: 85%;
+    border: none;
+    border-radius: .25rem;
+    font-size: 1rem;
+    color: var(--color-secondary);
+}
+
+.index__form-submit {
+    height: 2rem;
+    width: 2rem;
+    border: none;
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    border-radius: .25rem;
+}
+
+.index__form-subtext {
+    margin-top: 1rem;
+}
+
+
+
+
+/* FOOTER */
 .footer {
-    margin-top: 3rem;
+    margin-top: 2rem;
     padding: 1.5rem 0;
     font-size: .75rem;
     background-color: var(--color-dark);

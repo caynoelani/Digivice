@@ -18,6 +18,26 @@
 </head>
 <body>
     {% include "./partials/header.html" %}
+
+    <main class="main main__index">
+        <section>
+            <div class="index__main-heading container">
+                <h1 class="title title-primary">Digivice</h1>
+            </div>
+            
+            <div class="index__form-container container ">
+                <form action="/search_digimon" method="post" class="index__form">
+                    <label for="indexFormSearchbar" class="title title-secondary">Name or Number</label>
+                    <input type="text" class="index__form-searchbar" id="indexSearchbar">
+                    <button type="submit" class="index__form-submit">
+                        <i class="fa-solid fa-magnifying-glass fa-lg icon"></i>
+                    </button>
+                    <p class="index__form-subtext">Explore our full list of Digimon!</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
     {% include "./partials/footer.html" %}
 </body>
 </html>

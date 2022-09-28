@@ -1,0 +1,149 @@
+/* FONT IMPORTS */
+@font-face {
+    font-family: 'Pixel Digivolve';
+    src: url('../assets/fonts/pixel-digivolve-font/PixelDigivolve-mOm9.ttf') format('ttf');
+}
+
+/* RESETS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    letter-spacing: .07rem;
+}
+
+:root {
+    --color-primary: #e8e8e8;
+    --color-secondary: #898989;
+    --color-accent: #d68318;
+    --color-light: #ffffff;
+    --color-dark: #23272A;
+
+    --font-size-default: 1rem;
+    --font-size-title-secondary: 2rem;
+    --font-size-title-primary: 3rem;
+
+    --font-family-default: Helvetica, Arial, sans-serif;
+    --font-family-title-primary: 'Pixel Digivolve', Helvetica, Arial, sans-serif;
+    
+    /* --num-of-grid-columns: 4;
+    --section-spacing: 5.6rem 2.4rem;
+    --container-width: 126rem; */
+}
+
+body {
+    font-size: var(--font-size-default);
+    font-family: var(--font-family-default);
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    color: var(--color-secondary);
+}
+
+li::marker {
+    content: '';
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* LAYOUT */
+.container {
+    margin: 0 auto;
+    padding: .5rem 2rem;
+    width: 100%;
+}
+
+.title-primary {
+    font-family: var(--font-family-title-primary);
+    font-size: var(--font-size-title-primary);
+}
+
+/* NAV */
+.nav {
+    background-color: var(--color-primary);
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__list {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: -100%;
+    top: 4rem;
+    width: 100%;
+    background-color: var(--color-primary);
+    text-align: center;
+    /* transition: 0.3s; */
+}
+
+.nav__list.active {
+    left: 0;
+}
+
+.nav__list-item {
+    margin: 1rem 0;
+}
+
+.nav__list-link {
+    text-transform: uppercase;
+    transition: all .3s;
+}
+
+.nav__list-link:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+.nav__logo-img {
+    width: 5rem;
+}
+
+.nav__mobile.active {
+    display: none;
+}
+
+.nav__mobile-toggler-icon {
+    display: flex;
+    font-size: 2rem;
+    color: var(--color-secondary);
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .nav__mobile {
+        display: none;
+    }
+
+    .nav__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        position: static;
+        left: 0;
+        top: 0;
+    }
+
+    /* display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: -100%;
+    top: 4rem;
+    width: 100%;
+    background-color: var(--color-primary);
+    text-align: center;
+    transition: 0.3s; */
+}

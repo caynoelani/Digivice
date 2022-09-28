@@ -20,7 +20,7 @@ html {
     --color-secondary: #898989;
     --color-accent: #d68318;
     --color-light: #ffffff;
-    --color-dark: #23272A;
+    --color-dark: #313131;
 
     --font-size-default: 1rem;
     --font-size-title-secondary: 2rem;
@@ -134,6 +134,36 @@ img {
 .header__hero-catalogue {
     background-image: url('../assets/img/digimon-catalogue.jpg');
 }
+
+/* FOOTER */
+
+.footer {
+    margin-top: 3rem;
+    padding: 1.5rem 0;
+    font-size: .75rem;
+    background-color: var(--color-dark);
+    color: var(--color-primary);
+}
+
+.footer__attribute-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: .8;
+}
+
+.footer__attribute-socials {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer__attribute-socials .icon{
+    color: var(--color-primary);
+    margin-left: 1rem;
+}
+
+
 
 @media screen and (min-width: 768px) {
     .nav__mobile {

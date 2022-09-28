@@ -18,7 +18,8 @@ html {
 :root {
     --color-primary: #e8e8e8;
     --color-secondary: #898989;
-    --color-accent: #d68318;
+    --color-tertiary: #d68318;
+    --color-accent: #0085bd;
     --color-light: #ffffff;
     --color-dark: #313131;
 
@@ -60,7 +61,7 @@ img {
 .title-primary {
     font-family: var(--font-family-title-primary);
     font-size: var(--font-size-title-primary);
-    color: var(--color-accent)
+    color: var(--color-tertiary)
 }
 
 .title-secondary {
@@ -106,7 +107,7 @@ section {
 }
 
 .nav__list-link:hover {
-    color: var(--color-accent);
+    color: var(--color-tertiary);
     text-decoration: underline;
 }
 
@@ -135,7 +136,7 @@ section {
     background-image: url('../assets/img/digimon-tamers.avif');
 }
 
-.header__hero-about {
+.header__hero-favorites {
     background-image: url('../assets/img/digimon-about.jpg');
 }
 
@@ -171,7 +172,7 @@ section {
     height: 2rem;
     padding: .5rem;
     border-radius: .25rem;
-    background-color: var(--color-accent);
+    background-color: var(--color-tertiary);
     color: var(--color-primary);
     cursor: pointer;
 }
@@ -186,6 +187,54 @@ section {
 }
 
 
+/* ONE DIGIMON PAGE */
+.digimon__btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-carousel{
+    width: 49%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    padding: 1.5rem .5rem;
+    border-radius: .25rem;
+}
+
+.digimon__img-wrapper {
+    margin-top: 1rem;
+    background-color: var(--color-primary);
+}
+
+.digimon__img-wrapper h2 {
+    text-align: center;
+    color: var(--color-secondary);
+}
+
+
+.digimon__stats-wrapper {
+    background-color: var(--color-accent);
+    padding: 1rem 1rem;
+    border-radius: .75rem;
+    color: var(--color-light);
+}
+
+.digimon__stats-wrapper .title{
+    text-align: center;
+}
+
+.digimon__attributes-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.digimon__attributes-wrapper p{
+    margin-top: 1rem;
+}
 
 
 /* FOOTER */
@@ -195,6 +244,12 @@ section {
     font-size: .75rem;
     background-color: var(--color-dark);
     color: var(--color-primary);
+}
+
+.footer__spacer{
+    height: 3rem;
+    width: 100%;
+    background-color: var(--color-light);
 }
 
 .footer__attribute-wrapper {

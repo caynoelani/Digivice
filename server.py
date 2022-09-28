@@ -5,17 +5,17 @@ from flask import render_template
 def index():
     return render_template('index.html', view = 'index')
 
-@app.route('/about')
-def about():
-    return render_template('about.html', view = 'about')
+@app.route('/favorites')
+def favorites():
+    return render_template('favorites.html', view = 'favorites')
 
 @app.route('/catalogue')
 def catalogue():
     return render_template('catalogue.html', view = 'catalogue')
 
-# @app.route('/catalogue/<id>')
-# def catalogue(id):
-#     return render_template('index.html', view = 'catalogue/<id>')
+@app.route('/digimon')
+def digimon():
+    return render_template('digimon.html', view = 'digimon')
 
 if __name__ == '__main__':
     app.run(debug=True)

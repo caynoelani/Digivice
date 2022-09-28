@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- JavaScript -->
+    <script src="../static/js/script.js" defer></script>
+
+    <!-- FONT AWESOME-->
+    <script src="https://kit.fontawesome.com/11b60066da.js" crossorigin="anonymous"></script>
+    
+    <title>Digivice | digimon name</title>
+</head>
+<body>
+    {% include "./partials/header.html" %}
+
+    <main class="main main__digimon">
+        <section>
+            <div class="digimon__btn-wrapper">
+                <a href="#" class="btn btn-carousel btn-carousel-left">
+                    <i class="fa-solid fa-chevron-left icon"></i>
+                    <p>#27</p>
+                </a>
+                <a href="#" class="btn btn-carousel btn-carousel-right">
+                    <p>#29</p>
+                    <i class="fa-solid fa-chevron-right icon"></i>
+                </a>
+            </div>
+            <div class="digimon__img-wrapper container">
+                <img src="../static/assets/img/hackmon.webp" alt="" class="digimon__img">
+                <h2 class="title title-secondary">#28 Hackmon</h2>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="digimon__stats-wrapper">
+                <h3 class="title">Stats</h3>
+                <div class="digimon__attributes-wrapper">
+                    <p>Level: Child</p>
+                    <p>Attribute: Data</p>
+                    <p>Type: Small Dragon</p>
+                    <p>Field: Field List</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include "./partials/footer.html" %}
+</body>
+</html>

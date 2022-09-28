@@ -117,6 +117,16 @@ img {
     cursor: pointer;
 }
 
+.header__hero {
+    background-size: cover;
+    background-position: center;
+    height: 12rem;
+}
+
+.header__hero-index {
+    background-image: url('../assets/img/digimon-tamers.avif');
+}
+
 @media screen and (min-width: 768px) {
     .nav__mobile {
         display: none;
@@ -136,5 +146,10 @@ img {
         position: static;
         left: 0;
         top: 0;
+    }
+
+    .header__hero {
+        background-position: top;
+        height: 24rem;
     }
 }

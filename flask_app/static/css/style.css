@@ -144,7 +144,7 @@ img {
     background-image: url('../assets/img/digimon-catalogue.jpg');
 }
 
-/* MAIN */
+/* INDEX */
 .index__form-container {
     background-color: var(--color-secondary);
     color: var(--color-primary);
@@ -152,12 +152,12 @@ img {
     padding: 2rem;
 }
 
-.index__form-searchbar, .index__form-searchbar:focus {
+input, input:focus {
     margin-top: .25rem;
     padding: 0 .5rem;
     line-height: 2rem;
     width: 85%;
-    border: none;
+    border: 1px solid inherit;
     border-radius: .25rem;
     font-size: 1rem;
     color: var(--color-secondary);
@@ -177,9 +177,11 @@ img {
     cursor: pointer;
 }
 
-.btn-submit {
+.index__form .btn-submit {
     width: 2rem;
 }
+
+
 
 .btn-surprise {
     margin-top: 2rem;
@@ -213,7 +215,6 @@ img {
     text-align: center;
     color: var(--color-secondary);
 }
-
 
 .digimon__stats-wrapper {
     background-color: var(--color-accent);

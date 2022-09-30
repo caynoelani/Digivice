@@ -11,13 +11,13 @@ def render_home():
     return redirect('/')
 
 @app.route('/favorites')
-def favorites():
+def render_favorites():
     return render_template('favorites.html', view = 'favorites')
 
 @app.route('/catalogue')
-def catalogue():
+def render_catalogue():
     return render_template('catalogue.html', view = 'catalogue')
 
 @app.route('/digimon')
-def digimon():
+def render_digimon():
     return render_template('digimon.html')

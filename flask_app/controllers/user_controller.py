@@ -19,4 +19,5 @@ def user_register():
 @app.route('/logout', methods=['POST'])
 def logout():
     session.clear()
+    print("user logged out")
     return redirect('/')

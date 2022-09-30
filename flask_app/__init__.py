@@ -1,3 +1,5 @@
 from flask import Flask
+import os
+
 app = Flask(__name__)
-app.secret_key = '3948ubrf34o87yg'
+app.secret_key = os.getenv("SECRET_KEY")

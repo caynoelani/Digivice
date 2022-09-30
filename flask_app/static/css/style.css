@@ -68,7 +68,7 @@ img {
     font-size: var(--font-size-title-secondary);
 }
 
-section {
+.section {
     margin-top: 2rem;
 }
 

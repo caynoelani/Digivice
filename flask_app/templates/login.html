@@ -8,8 +8,17 @@
 <body>
     {% include './partials/header.html' %}
 
-    <main>
-
+    <main class="main main__login">
+        <section class="section container">
+            <h2>Login</h1>
+            <form action='/users' method='post'>
+                <label for='name'>Name:</label>
+                <input type='text' name='name'>
+                <label for='email'>Email:</label>
+                <input type='text' name='email'>
+                <button>Login</button>
+            </form>
+        </section>
     </main>
 
     {% include './partials/footer.html' %}

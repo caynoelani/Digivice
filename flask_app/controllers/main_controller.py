@@ -20,4 +20,4 @@ def catalogue():
 
 @app.route('/digimon')
 def digimon():
-    return render_template('digimon.html', view = 'digimon')
+    return render_template('digimon.html')

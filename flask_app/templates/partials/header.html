@@ -15,16 +15,21 @@
                     Catalogue
                 </a>
             </li>
+
+            {% if user == true %}
             <li class="nav__list-item">
                 <a href="/favorites" class="nav__list-link">
                     Favorites
                 </a>
             </li>
+
+            {% else %}
             <li class="nav__list-item">
                 <a href="/login" class="nav__list-link">
                     Login
                 </a>
             </li>
+            {% endif %}
         </ul>
 
         <div class="nav__mobile" id="navMobile">

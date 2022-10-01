@@ -1,9 +1,32 @@
+#******************************************************
+#***********************IMPORTS************************
+#******************************************************
+
+#=====================================
+# Import app
+#=====================================
 from flask_app import app
+
+#=====================================
+# Import Modules/Packages
+#=====================================
 from flask import redirect, render_template, session, request
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
+
+#=====================================
+# Import Models
+#=====================================
 from flask_app.models import user_model
 
+
+#******************************************************
+#***********************ROUTES*************************
+#******************************************************
+
+#=====================================
+# Login Routes
+#=====================================
 @app.route('/login')
 def render_login():
     return render_template('login.html')
@@ -18,6 +41,9 @@ def user_login():
         session["email"] = request.form["email"]
     return redirect('/')
 
+#=====================================
+# Logout Route
+#=====================================
 @app.route('/logout', methods=['POST'])
 def logout():
     session.clear()

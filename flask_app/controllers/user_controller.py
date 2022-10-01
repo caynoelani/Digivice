@@ -8,12 +8,12 @@ def render_login():
 
 @app.route('/login', methods=["POST"])
 def user_login():
-    print(request.form)
-    return redirect('/')
-
-@app.route('/register', methods=["POST"])
-def user_register():
-    print(request.form)
+    
+    if request.form["form_type"] == "login":
+        session["email"] = request.form["email"]
+    elif request.form["form_type"] == "register":
+        session["username"] = request.form["username"]
+        session["email"] = request.form["email"]
     return redirect('/')
 
 @app.route('/logout', methods=['POST'])

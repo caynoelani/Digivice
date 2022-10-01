@@ -7,7 +7,6 @@
 #===================================
 
 #===================================
-# Import connectToMySQL function
 # Import App
 #===================================
 from flask_app import app

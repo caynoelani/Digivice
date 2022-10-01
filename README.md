@@ -1,2 +1,2 @@
 # Digivice
- Digivice app written in Python using flask and DAPI
+ Digimon Digivice app written in Python using flask and DAPI

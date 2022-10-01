@@ -29,10 +29,12 @@ from flask_app.models import user_model
 @app.route('/login')
 def render_login():
 
-    if "user_id" in session:
+    is_logged_in = user_model.User.validate_logged_in()
+
+    if is_logged_in:
         return redirect('/')
 
-    return render_template('login.html')
+    return render_template('login.html', is_logged_in = is_logged_in)
 
 @app.route('/login', methods=["POST"])
 def user_login():
@@ -69,7 +71,7 @@ def user_login():
 #=====================================
 # Logout Route
 #=====================================
-@app.route('/logout', methods=['POST'])
+@app.route('/logout')
 def logout():
     
     session.clear()

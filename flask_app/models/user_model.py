@@ -10,6 +10,22 @@ from flask_app import app
 from flask_app.config.mysqlconnection import connectToMySQL
 
 #=====================================
+# Import app
+#=====================================
+from flask_app import app
+
+#=====================================
+# Import Flask Modules
+#=====================================
+from flask import flash, session
+
+#=====================================
+# Import Bcrypt
+#=====================================
+from flask_bcrypt import Bcrypt        
+bcrypt = Bcrypt(app)
+
+#=====================================
 # Import Regex Module
 #=====================================
 import re
@@ -88,18 +104,24 @@ class User:
    def validate_login(data):
       is_valid = True
 
-      user_in_db = User.get_by_email(data)
+      user = User.get_by_email(data)
 
-      if not user_in_db:
+      if not user:
          flash("Invalid email or password")
          is_valid = False
       
-      elif not bcrypt.check_password_hash(user_in_db.password, data['password']):
+      elif not bcrypt.check_password_hash(user.password, data['password']):
          flash("Invalid email or password")
          is_valid = False
          
       return is_valid
 
+#===================================
+# Validate Logged In
+#===================================
+   @staticmethod
+   def validate_logged_in():
+      return ("user_id" in session)
 
 #*********************************************
 #************CLASS METHODS (CRUD)*************

@@ -27,7 +27,10 @@ from flask_app.models import favorite_model, user_model, digimon_model
 #=====================================
 @app.route('/')
 def render_index():
-    return render_template('index.html', view = 'index')
+
+    is_logged_in = user_model.User.validate_logged_in()
+
+    return render_template('index.html', view = 'index', is_logged_in = is_logged_in)
 
 @app.route('/home')
 def render_home():
@@ -38,18 +41,27 @@ def render_home():
 #=====================================
 @app.route('/favorites')
 def render_favorites():
-    return render_template('favorites.html', view = 'favorites')
+    is_logged_in = user_model.User.validate_logged_in()
+
+    if is_logged_in:
+        return render_template('favorites.html', view = 'favorites', is_logged_in = is_logged_in)
+    
+    return redirect('/login')
 
 #=====================================
 # Catalogue Page Routes
 #=====================================    
 @app.route('/catalogue')
 def render_catalogue():
-    return render_template('catalogue.html', view = 'catalogue')
+    is_logged_in = user_model.User.validate_logged_in()
+
+    return render_template('catalogue.html', view = 'catalogue', is_logged_in = is_logged_in)
 
 #=====================================
 # Digimon Page Routes
 #=====================================
 @app.route('/digimon')
 def render_digimon():
-    return render_template('digimon.html')
+    is_logged_in = user_model.User.validate_logged_in()
+    
+    return render_template('digimon.html', is_logged_in = is_logged_in)

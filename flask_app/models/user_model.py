@@ -56,21 +56,9 @@ class User:
    def validate_register(data):
       is_valid = True
 
-      if len(data['first_name']) < 2:
-         flash("First name must be at least 2 characters.")
+      if len(data['username']) < 2:
+         flash("Username must be at least 2 characters.")
          is_valid = False
-      elif not NAME_REGEX.match(data['first_name']): 
-         flash("First name must be letters only!")
-         is_valid = False
-
-
-      if len(data['last_name']) < 2:
-         flash("Last name must be at least 2 characters.")
-         is_valid = False
-      elif not NAME_REGEX.match(data['last_name']): 
-         flash("Last name must be letters only!")
-         is_valid = False
-
 
       if not EMAIL_REGEX.match(data['email']): 
          flash("Invalid email address!")
@@ -84,8 +72,7 @@ class User:
                   flash("email already exists")
                   is_valid = False
 
-
-      if data['password'] != data['password_confirmation']:
+      if data['password'] != data['confirmPassword']:
          flash("Passwords do not match.")
          is_valid = False
       if not PASSWORD_REGEX.match(data['password']): 

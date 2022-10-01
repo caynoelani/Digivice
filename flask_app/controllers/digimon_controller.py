@@ -17,7 +17,7 @@ import json
 #=====================================
 # Import Models
 #=====================================
-from flask_app.models import user_model, digimon_model
+from flask_app.models import favorite_model, user_model
 
 
 #******************************************************

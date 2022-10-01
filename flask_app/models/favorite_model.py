@@ -12,17 +12,15 @@ from flask_app import app
 #*********************************************
 #*******************CLASS*********************
 #*********************************************
+class Favorite:
+    def __init__(self, data):
+        self.id = data["id"]
 
-class User:
-   def __init__(self, data):
-      self.id = data["id"]
+        self.name = data["name"]
+        self.nickname = data["nickname"]
 
-      self.username = data["username"]
-      self.email = data["email"]
-      
-      self.password = data["password"]
-      self.created_at = data["created_at"]
-      self.updated_at = data["updated_at"]
+        self.created_at = data["created_at"]
+        self.updated_at = data["updated_at"]
 
 
 #*********************************************
@@ -34,5 +32,3 @@ class User:
 #*********************************************
 #************CLASS METHODS (CRUD)*************
 #*********************************************
-
-   # SELECT * FROM users JOIN favorites ON users.id = favorites.user_id WHERE users.id = %(id)s

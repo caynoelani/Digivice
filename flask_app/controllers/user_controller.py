@@ -41,7 +41,7 @@ def user_login():
     
     if request.form["form_type"] == "login":
         if not user_model.User.validate_login(request.form):
-            return redirect ('/')
+            return redirect ('/login')
 
         data = { "email" : request.form["email"] }
         user = user_model.User.get_by_email(data)
@@ -51,7 +51,7 @@ def user_login():
 
     elif request.form["form_type"] == "register":
         if not user_model.User.validate_register(request.form):
-            return redirect ('/')
+            return redirect ('/login')
 
         pw_hash = bcrypt.generate_password_hash(request.form['password'])
 

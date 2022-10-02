@@ -132,7 +132,6 @@ class User:
    #=============================
    @classmethod
    def create(cls, data):
-      print("creating user")
 
       query = "INSERT INTO users ( username, email , password, created_at, updated_at) VALUES ( %(username)s , %(email)s , %(password)s , NOW(), NOW());"
 
@@ -146,17 +145,11 @@ class User:
    @classmethod
    def get_by_email(cls, data):
 
-      print(f"retrieving one user from {cls.db}")
-
       query = "SELECT * FROM users WHERE email = %(email)s;"
 
       results = connectToMySQL(cls.db).query_db(query,data)
-
-      print(f"here is the retrieved user: {results}")
 
       if len(results) < 1:
          return False
          
       return cls(results[0])
-
-   # SELECT * FROM users JOIN favorites ON users.id = favorites.user_id WHERE users.id = %(id)s

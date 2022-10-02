@@ -16,6 +16,8 @@ class Favorite:
     def __init__(self, data):
         self.id = data["id"]
 
+        self.user_id = data["user_id"] #foreign key
+
         self.name = data["name"]
         self.nickname = data["nickname"]
 
@@ -32,3 +34,27 @@ class Favorite:
 #*********************************************
 #************CLASS METHODS (CRUD)*************
 #*********************************************
+    #=============================
+    # READ (GET ALL) Favorites
+    #=============================
+    @classmethod
+    def get_favorite_by_user(cls, data):
+
+        query = "SELECT * FROM favorites WHERE user_id = %(id)s"
+        results = connectToMySQL(cls.db).query_db(query, data)
+
+        favorites_list = []
+
+        if not results:
+            return False
+        
+        for digimon in results:
+            favorites_list.append(cls(digimon))
+        
+        return favorites_list
+
+
+
+
+
+#    SELECT * FROM users JOIN favorites ON users.id = favorites.user_id WHERE users.id = %(id)s

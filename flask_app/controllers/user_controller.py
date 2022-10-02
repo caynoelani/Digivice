@@ -32,7 +32,7 @@ def render_login():
     is_logged_in = user_model.User.validate_logged_in()
 
     if is_logged_in:
-        return redirect('/')
+        return redirect('/favorites')
 
     return render_template('login.html', is_logged_in = is_logged_in)
 
@@ -66,7 +66,7 @@ def user_login():
         session['user_id'] = user_id
         session["username"] = request.form["username"]
 
-    return redirect('/')
+    return redirect('/favorites')
 
 #=====================================
 # Logout Route

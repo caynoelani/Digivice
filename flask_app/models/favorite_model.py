@@ -54,7 +54,4 @@ class Favorite:
         return favorites_list
 
 
-
-
-
 #    SELECT * FROM users JOIN favorites ON users.id = favorites.user_id WHERE users.id = %(id)s

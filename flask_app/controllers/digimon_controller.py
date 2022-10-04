@@ -34,16 +34,18 @@ async def search_digimon():
     if req.isalpha():
         try:
             req = req.lower()
+            return redirect(f'/digimon/{req}')
 
         except requests.exceptions.JSONDecodeError:
             flash('Please check your spelling and try again')
             return redirect('/')
 
-    else:
-        flash("Please enter a digimon's name")
-        return redirect('/')
+    if req.isnumeric():
+        return redirect(f'/digimon/{int(req)}')
 
-    return redirect(f'/digimon/{req}')
+    else:
+        flash("Please enter a digimon's name or number")
+        return redirect('/')
 
 #=====================================
 # Digimon Catalogue Page Route
@@ -57,10 +59,23 @@ async def search_digimon():
 #     return render_template('digimon.html', is_logged_in = is_logged_in, digimon_list = digimon_list)
 
 #=====================================
-# Digimon [ONE] Page Route
+# Digimon [ONE] Page Routes
 #=====================================
+@app.route('/digimon/<int:req>',)
+async def read_one_digimon_int(req):
+
+    print(f"req is {req}")
+
+    is_logged_in = user_model.User.validate_logged_in()
+
+    digimon_info = await digimon_model.get_digimon_info(req)
+
+    print(digimon_info)
+
+    return render_template('digimon.html', is_logged_in = is_logged_in, digimon_info = digimon_info)
+
 @app.route('/digimon/<req>',)
-async def read_one_digimon(req):
+async def read_one_digimon_name(req):
 
     print(f"req is {req}")
 

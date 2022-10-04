@@ -31,7 +31,7 @@ async def search_digimon():
 
     req = request.form["indexSearchbar"]
 
-    if req.isalpha() or req.isnumeric():
+    if req.isalpha():
         try:
             req = req.lower()
 
@@ -40,21 +40,21 @@ async def search_digimon():
             return redirect('/')
 
     else:
-        flash("Please enter a digimon's name or number")
+        flash("Please enter a digimon's name")
         return redirect('/')
 
-    return redirect('/digimon/<req>')
+    return redirect(f'/digimon/{req}')
 
 #=====================================
 # Digimon Catalogue Page Route
-#=====================================
-@app.route('/digimon')
-async def render_digimon():
-    is_logged_in = user_model.User.validate_logged_in()
+#=====================================s
+# @app.route('/digimon')
+# async def render_digimon():
+#     is_logged_in = user_model.User.validate_logged_in()
 
-    digimon_list = await digimon_model.get_digimon_list()
+#     digimon_list = await digimon_model.get_digimon_list()
     
-    return render_template('digimon.html', is_logged_in = is_logged_in, digimon_list = digimon_list)
+#     return render_template('digimon.html', is_logged_in = is_logged_in, digimon_list = digimon_list)
 
 #=====================================
 # Digimon [ONE] Page Route
@@ -62,8 +62,12 @@ async def render_digimon():
 @app.route('/digimon/<req>',)
 async def read_one_digimon(req):
 
+    print(f"req is {req}")
+
     is_logged_in = user_model.User.validate_logged_in()
 
     digimon_info = await digimon_model.get_digimon_info(req)
+
+    print(digimon_info)
 
     return render_template('digimon.html', is_logged_in = is_logged_in, digimon_info = digimon_info)

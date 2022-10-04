@@ -44,7 +44,7 @@ def user_login():
             return redirect ('/login')
 
         data = { "email" : request.form["email"] }
-        user = user_model.User.get_by_email(data)
+        user = user_model.User.get_user_by_email(data)
 
         session["user_id"] = user.id
         session["username"] = user.username

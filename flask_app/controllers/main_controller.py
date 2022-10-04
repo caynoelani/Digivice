@@ -56,12 +56,3 @@ def render_catalogue():
     is_logged_in = user_model.User.validate_logged_in()
 
     return render_template('catalogue.html', view = 'catalogue', is_logged_in = is_logged_in)
-
-#=====================================
-# Digimon Page Routes
-#=====================================
-@app.route('/digimon')
-def render_digimon():
-    is_logged_in = user_model.User.validate_logged_in()
-    
-    return render_template('digimon.html', is_logged_in = is_logged_in)

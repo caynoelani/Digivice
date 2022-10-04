@@ -51,9 +51,7 @@ async def search_digimon():
     else:
         flash("Please enter a digimon's name or number")
         return redirect('/')   
-
-    # search_request = requests.get(f"digi-api.com/api/v1/digimon/{}")
-
+        
     return redirect('/')
 
 # #=====================================

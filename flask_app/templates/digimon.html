@@ -94,14 +94,23 @@
             <div class="digimon__stats-wrapper">
                 <h3 class="title">Skills</h3>
                 <div class="digimon__attributes-wrapper">
-                    {% if digimon_info.fields == [] %}
+                    {% if digimon_info.skills == [] %}
                         N/A
                     {% else %}
                         <table>
                             {% for skill in digimon_info.skills %}
                             <tr>
+                                {% if skill.skill == "" or skill.skill == " " %}
+                                <td> N/A </td>
+                                {% else %}
                                 <td>{{ skill.skill }}</td>
+                                {% endif %}
+
+                                {% if skill.description == "" or skill.description == " " %}
+                                <td> N/A </td>
+                                {% else %}
                                 <td>{{ skill.description }}</td>
+                                {% endif %}
                             </tr>
                             {% endfor %}
                         </table>

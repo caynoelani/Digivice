@@ -34,11 +34,15 @@
                 <h3 class="title">About {{digimon_info.name}}</h3>
                 <div class="digimon__attributes-wrapper">
                     <p>
-                        {% for description in digimon_info.descriptions %}
-                            {% if description.language == "en_us" %}
-                                {{ description.description }}
-                            {% endif %}
-                        {% endfor %}
+                        {% if digimon_info.descriptions == [] or ( (digimon_info.descriptions | length ) == 1 and digimon_info.descriptions[0].language != "en_us" ) %}
+                            N/A
+                        {% else %}
+                            {% for description in digimon_info.descriptions %}
+                                {% if description.language == "en_us" %}
+                                    {{ description.description }}
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
                     </p>
                 </div>
             </div>
@@ -48,9 +52,21 @@
             <div class="digimon__stats-wrapper">
                 <h3 class="title">Stats</h3>
                 <div class="digimon__attributes-wrapper">
+                    {% if digimon_info.levels[0] %}
                     <p>Level: {{ digimon_info.levels[0].level }}</p>
+                    {% else %}
+                    <p>Level: N/A</p>
+                    {% endif %}
+                    {% if digimon_info.attributes[0] %}
                     <p>Attribute: {{ digimon_info.attributes[0].attribute }}</p>
+                    {% else %}
+                    <p>Attributes: N/A</p>
+                    {% endif %}
+                    {% if digimon_info.types[0] %}
                     <p>Type: {{ digimon_info.types[0].type }}</p>
+                    {% else %}
+                    <p>Type: N/A</p>
+                    {% endif %}
                 </div>
             </div>
         </section>
@@ -59,13 +75,17 @@
             <div class="digimon__stats-wrapper">
                 <h3 class="title">Fields</h3>
                 <div class="digimon__attributes-wrapper">
-                    {% for field in digimon_info.fields %}
-                        {% if not field.field %}
-                            <p>NONE</p>
-                        {% else %}
-                            <p>{{ field.field }}</p>
-                        {% endif %}
-                    {% endfor %}
+                    {% if digimon_info.fields == [] %}
+                            N/A
+                    {% else %}
+                        {% for field in digimon_info.fields %}
+                            {% if not field.field %}
+                                <p>NONE</p>
+                            {% else %}
+                                <p>{{ field.field }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
         </section>
@@ -74,6 +94,9 @@
             <div class="digimon__stats-wrapper">
                 <h3 class="title">Skills</h3>
                 <div class="digimon__attributes-wrapper">
+                    {% if digimon_info.fields == [] %}
+                        N/A
+                    {% else %}
                         <table>
                             {% for skill in digimon_info.skills %}
                             <tr>
@@ -82,6 +105,7 @@
                             </tr>
                             {% endfor %}
                         </table>
+                    {% endif %}
                 </div>
             </div>
         </section>

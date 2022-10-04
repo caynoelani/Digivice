@@ -27,7 +27,7 @@ from flask_app.models import favorite_model, user_model, digimon_model
 # Search Route [POST]
 #=====================================
 @app.route('/search_digimon', methods=['POST'])
-def search_pokemon():
+async def search_digimon():
 
     # is_logged_in = user_model.User.validate_logged_in()
 
@@ -35,14 +35,15 @@ def search_pokemon():
     #     data = { "user_id": session["user_id"]}
     #     user = user_model.User.get_user_by_id(data)
 
-    req = request.form["indexSearchBar"]
+    req = request.form["indexSearchbar"]
 
     if req.isalpha() or req.isnumeric():
         try:
             req = req.lower()
 
-            digimon_info = digimon_model.get_digimon_info(req)
-            
+            digimon_info = await digimon_model.get_digimon_info(req)
+            print(f"----------------- {digimon_info} -----------")
+
         except requests.exceptions.JSONDecodeError:
             flash('Please check your spelling and try again')
             return redirect('/')
@@ -53,4 +54,11 @@ def search_pokemon():
 
     # search_request = requests.get(f"digi-api.com/api/v1/digimon/{}")
 
-    # return jsonify( r.json() )
+    return redirect('/')
+
+# #=====================================
+# # 
+# #=====================================
+# @app.route('/digimon/<digimon_info.name>',)
+# def read_one_digimon(id):
+#     return

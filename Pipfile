@@ -5,9 +5,11 @@ name = "pypi"
 
 [packages]
 pymysql = "*"
-flask = "*"
 flask-bcrypt = "*"
 requests = "*"
+aioflask = "*"
+werkzeug = "*"
+flask = {extras = ["async"], version = "*"}
 
 [dev-packages]
 

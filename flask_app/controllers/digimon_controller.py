@@ -43,31 +43,27 @@ async def search_digimon():
         flash("Please enter a digimon's name or number")
         return redirect('/')
 
-        
-    print(f"----------------- {digimon_info['name']} -----------")
-    return redirect('/digimon/<digimon_info>')
+    return redirect('/digimon/<req>')
 
 #=====================================
-# Digimon Page Routes
+# Digimon Catalogue Page Route
 #=====================================
 @app.route('/digimon')
-def render_digimon():
+async def render_digimon():
     is_logged_in = user_model.User.validate_logged_in()
+
+    digimon_list = await digimon_model.get_digimon_list()
     
-    return render_template('digimon.html', is_logged_in = is_logged_in)
+    return render_template('digimon.html', is_logged_in = is_logged_in, digimon_list = digimon_list)
 
 #=====================================
-# 
+# Digimon [ONE] Page Route
 #=====================================
 @app.route('/digimon/<req>',)
-def read_one_digimon(req):
+async def read_one_digimon(req):
 
-    # is_logged_in = user_model.User.validate_logged_in()
-
-    # if session['user_id']:
-    #     data = { "user_id": session["user_id"]}
-    #     user = user_model.User.get_user_by_id(data)
+    is_logged_in = user_model.User.validate_logged_in()
 
     digimon_info = await digimon_model.get_digimon_info(req)
 
-    return render_template('digimon.html')
+    return render_template('digimon.html', is_logged_in = is_logged_in, digimon_info = digimon_info)

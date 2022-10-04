@@ -24,5 +24,11 @@ from flask_app.models import favorite_model, user_model, digimon_model
 #******************************************************
 
 #=====================================
-# Search Route
+# Search Route [POST]
 #=====================================
+@app.route('/search', methods=['POST'])
+def search_pokemon():
+
+    if session['user_id']:
+
+        user = user_model.User.get_user_by_id()

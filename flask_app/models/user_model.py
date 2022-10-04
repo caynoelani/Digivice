@@ -143,9 +143,24 @@ class User:
    # READ (one) by Email
    #=============================
    @classmethod
-   def get_by_email(cls, data):
+   def get_user_by_email(cls, data):
 
       query = "SELECT * FROM users WHERE email = %(email)s;"
+
+      results = connectToMySQL(cls.db).query_db(query,data)
+
+      if len(results) < 1:
+         return False
+         
+      return cls(results[0])
+
+   #=============================
+   # READ (one) by ID
+   #=============================
+   @classmethod
+   def get_user_by_id(cls, data):
+
+      query = "SELECT * FROM users WHERE id = %(id)s;"
 
       results = connectToMySQL(cls.db).query_db(query,data)
 

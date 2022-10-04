@@ -22,7 +22,7 @@
             <div class="digimon__img-wrapper container">
                 <img src={{digimon_info.images[0].href}} alt={{digimon_info.name}} class="digimon__img">
                 <h2 class="title title-secondary">#{{ digimon_info.id }} {{ digimon_info.name }}</h2>
-                <button class="favorite">
+                <button class="btn favorite">
                     <i class="fa-solid fa-star"></i>
                     Favorite
                 </button>
@@ -36,7 +36,7 @@
                     <p>
                         {% for description in digimon_info.descriptions %}
                             {% if description.language == "en_us" %}
-                                {{description.description}}
+                                {{ description.description }}
                             {% endif %}
                         {% endfor %}
                     </p>
@@ -60,7 +60,11 @@
                 <h3 class="title">Fields</h3>
                 <div class="digimon__attributes-wrapper">
                     {% for field in digimon_info.fields %}
-                        <p>{{ field.field }}</p>
+                        {% if not field.field %}
+                            <p>NONE</p>
+                        {% else %}
+                            <p>{{ field.field }}</p>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>

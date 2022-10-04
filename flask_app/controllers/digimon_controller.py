@@ -42,7 +42,6 @@ async def search_digimon():
             req = req.lower()
 
             digimon_info = await digimon_model.get_digimon_info(req)
-            print(f"----------------- {digimon_info} -----------")
 
         except requests.exceptions.JSONDecodeError:
             flash('Please check your spelling and try again')
@@ -52,6 +51,7 @@ async def search_digimon():
         flash("Please enter a digimon's name or number")
         return redirect('/')   
         
+    print(f"----------------- {digimon_info['name']} -----------")
     return redirect('/')
 
 # #=====================================

@@ -12,16 +12,16 @@
             <div class="digimon__btn-wrapper">
                 <a href="#" class="btn btn-carousel btn-carousel-left">
                     <i class="fa-solid fa-chevron-left icon"></i>
-                    <p>#27</p>
+                    <p>#{{ (digimon_info.id - 1) | int }}</p>
                 </a>
                 <a href="#" class="btn btn-carousel btn-carousel-right">
-                    <p>#29</p>
+                    <p>#{{ (digimon_info.id + 1) | int }}</p>
                     <i class="fa-solid fa-chevron-right icon"></i>
                 </a>
             </div>
             <div class="digimon__img-wrapper container">
-                <img src="../static/assets/img/hackmon.webp" alt="" class="digimon__img">
-                <h2 class="title title-secondary">#{{ digimon_info["id"] }} {{ digimon_info.name }}</h2>
+                <img src={{digimon_info.images[0].href}} alt="" class="digimon__img">
+                <h2 class="title title-secondary">#{{ digimon_info.id }} {{ digimon_info.name }}</h2>
             </div>
         </section>
 

@@ -20,8 +20,27 @@
                 </a>
             </div>
             <div class="digimon__img-wrapper container">
-                <img src={{digimon_info.images[0].href}} alt="" class="digimon__img">
+                <img src={{digimon_info.images[0].href}} alt={{digimon_info.name}} class="digimon__img">
                 <h2 class="title title-secondary">#{{ digimon_info.id }} {{ digimon_info.name }}</h2>
+                <button class="favorite">
+                    <i class="fa-solid fa-star"></i>
+                    Favorite
+                </button>
+            </div>
+        </section>
+
+        <section class="container section">
+            <div class="digimon__stats-wrapper">
+                <h3 class="title">About {{digimon_info.name}}</h3>
+                <div class="digimon__attributes-wrapper">
+                    <p>
+                        {% for description in digimon_info.descriptions %}
+                            {% if description.language == "en_us" %}
+                                {{description.description}}
+                            {% endif %}
+                        {% endfor %}
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -29,10 +48,36 @@
             <div class="digimon__stats-wrapper">
                 <h3 class="title">Stats</h3>
                 <div class="digimon__attributes-wrapper">
-                    <p>Level: Child</p>
-                    <p>Attribute: Data</p>
-                    <p>Type: Small Dragon</p>
-                    <p>Field: Field List</p>
+                    <p>Level: {{ digimon_info.levels[0].level }}</p>
+                    <p>Attribute: {{ digimon_info.attributes[0].attribute }}</p>
+                    <p>Type: {{ digimon_info.types[0].type }}</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container section">
+            <div class="digimon__stats-wrapper">
+                <h3 class="title">Fields</h3>
+                <div class="digimon__attributes-wrapper">
+                    {% for field in digimon_info.fields %}
+                        <p>{{ field.field }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section class="container section">
+            <div class="digimon__stats-wrapper">
+                <h3 class="title">Skills</h3>
+                <div class="digimon__attributes-wrapper">
+                        <table>
+                            {% for skill in digimon_info.skills %}
+                            <tr>
+                                <td>{{ skill.skill }}</td>
+                                <td>{{ skill.description }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
                 </div>
             </div>
         </section>

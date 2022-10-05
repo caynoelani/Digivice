@@ -95,16 +95,3 @@ async def read_one_digimon_name(req):
         return redirect('/')
 
     return render_template('digimon.html', is_logged_in = is_logged_in, digimon_info = digimon_info)
-
-#=====================================
-# Search Route [POST]
-#=====================================
-@app.route('/digimon/favorite/<req>', methods=['POST'])
-async def favorite_digimon(req):
-
-    if user_model.User.validate_logged_in():
-        # add favorite method
-        return redirect(f'/digimon/{req}')
-    else:
-        flash("Please Log In")
-        return redirect('/login')

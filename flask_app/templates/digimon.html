@@ -23,7 +23,8 @@
                 <img src={{digimon_info.images[0].href}} alt={{digimon_info.name}} class="digimon__img">
                 <h2 class="title title-secondary">#{{ digimon_info.id }} {{ digimon_info.name }}</h2>
 
-                <form action="/digimon/favorite/{{digimon_info.name | int}}" method="post" class="index__form">
+                <form action="/digimon/favorite" method="post" class="index__form">
+                    <input type="hidden" name="digimon_id" value={{digimon_info.id}}>
                     <button type='submit' class="btn btn-favorite">
                         <i class="fa-solid fa-star"></i>
                         Favorite

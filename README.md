@@ -9,4 +9,4 @@ This project is written in `Python` using the `Flask framework`, `Jinja2`, and `
 
 All styling is written in `CSS` using `BEM` naming conventions and a mobile-first, responsive design.
 
-[![DIGIMON API](https://https://digimon-api.com/)](https://https://digimon-api.com/)
+[![DIGIMON API](http://https://digimon-api.com/)](http://https://digimon-api.com/)

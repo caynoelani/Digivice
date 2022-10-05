@@ -43,7 +43,7 @@ async def search_digimon():
             return redirect('/')
 
     else:
-        flash("Please enter a digimon's name or number")
+        flash("Please enter a valid name or number")
         return redirect('/')
 
 #=====================================
@@ -75,5 +75,9 @@ async def read_one_digimon_name(req):
     is_logged_in = user_model.User.validate_logged_in()
 
     digimon_info = await digimon_model.get_digimon_info(req)
+
+    if digimon_info.error:
+        flash("Please enter a valid name or number")
+        return redirect('/')
 
     return render_template('digimon.html', is_logged_in = is_logged_in, digimon_info = digimon_info)

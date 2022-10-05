@@ -50,7 +50,7 @@ async def search_digimon():
 # Search Route [POST]
 #=====================================
 @app.route('/digimon/surprise', methods=['POST'])
-async def surprise_digimon():
+def surprise_digimon():
 
     req = random.randrange(1, 1422)
     

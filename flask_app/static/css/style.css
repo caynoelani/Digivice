@@ -216,7 +216,7 @@ input, input:focus {
     color: var(--color-secondary);
 }
 
-.digimon__img-wrapper .favorite {
+.digimon__img-wrapper .btn-favorite {
     margin: 0;
     position: relative;
     left: 50%;
@@ -229,7 +229,7 @@ input, input:focus {
     border: 1px solid var(--color-secondary);
 }
 
-.digimon__img-wrapper .favorite i {
+.digimon__img-wrapper .btn-favorite i {
     color: var(--color-secondary);
 }
 

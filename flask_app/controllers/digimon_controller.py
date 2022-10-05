@@ -11,7 +11,7 @@ from flask_app import app
 # Import Modules/Packages
 #=====================================
 from flask import render_template, redirect, request, flash, session, jsonify
-import requests, json, os
+import requests, json, os, random
 
 #=====================================
 # Import Models
@@ -45,6 +45,16 @@ async def search_digimon():
     else:
         flash("Please enter a valid name or number")
         return redirect('/')
+
+#=====================================
+# Search Route [POST]
+#=====================================
+@app.route('/digimon/surprise', methods=['POST'])
+async def surprise_digimon():
+
+    req = random.randrange(1, 1422)
+    
+    return redirect(f'/digimon/{req}')
 
 #=====================================
 # Digimon Catalogue Page Route

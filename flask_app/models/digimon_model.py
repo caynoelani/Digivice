@@ -24,6 +24,4 @@ async def get_digimon_info(req):
     digimon_info = requests.get(url)
     digimon_info = digimon_info.json()
 
-    print(digimon_info)
-
     return digimon_info

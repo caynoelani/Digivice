@@ -67,6 +67,10 @@ async def read_one_digimon_int(req):
 
     digimon_info = await digimon_model.get_digimon_info(req)
 
+    if 'error' in digimon_info:
+        flash("Please enter a valid name or number")
+        return redirect('/')
+
     return render_template('digimon.html', is_logged_in = is_logged_in, digimon_info = digimon_info)
 
 @app.route('/digimon/<req>',)
@@ -76,7 +80,7 @@ async def read_one_digimon_name(req):
 
     digimon_info = await digimon_model.get_digimon_info(req)
 
-    if digimon_info.error:
+    if 'error' in digimon_info:
         flash("Please enter a valid name or number")
         return redirect('/')
 

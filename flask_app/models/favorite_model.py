@@ -47,10 +47,9 @@ class Favorite:
     #=============================
     @classmethod
     def create_favorite(cls, data):
-        query = "INSERT INTO favorites (number, create_at, updated_at(), user_id) VALUES (%(digimon_id)s, NOW(), NOW(), %(user_id)s"
+        query = "INSERT INTO favorites (number, created_at, updated_at, user_id) VALUES (%(digimon_id)s, NOW(), NOW(), %(user_id)s)"
 
         results = connectToMySQL(cls.db).query_db(query, data)
-        pass
 
         return results
 

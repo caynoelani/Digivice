@@ -13,6 +13,15 @@ from flask_app.config.mysqlconnection import connectToMySQL
 #*******************CLASS*********************
 #*********************************************
 class Favorite:
+
+    #===============================
+    #Class attributes
+    #===============================
+    db = "digivice_schema"
+
+    #===============================
+    # Instance Constructor (init)
+    #===============================
     def __init__(self, data):
         self.id = data["id"]
 
@@ -38,9 +47,12 @@ class Favorite:
     #=============================
     @classmethod
     def create_favorite(cls, data):
+        query = "INSERT INTO favorites (number, create_at, updated_at(), user_id) VALUES (%(digimon_id)s, NOW(), NOW(), %(user_id)s"
+
+        results = connectToMySQL(cls.db).query_db(query, data)
         pass
 
-        # return favorite_id
+        return results
 
     #=============================
     # READ (GET ALL) Favorites

@@ -18,8 +18,7 @@ class Favorite:
 
         self.user_id = data["user_id"] #foreign key
 
-        self.name = data["name"]
-        self.nickname = data["nickname"]
+        self.number = data["digimon_id"]
 
         self.created_at = data["created_at"]
         self.updated_at = data["updated_at"]
@@ -34,6 +33,15 @@ class Favorite:
 #*********************************************
 #************CLASS METHODS (CRUD)*************
 #*********************************************
+    #=============================
+    # Create Favorite
+    #=============================
+    @classmethod
+    def create_favorite(cls, data):
+        pass
+
+        # return favorite_id
+
     #=============================
     # READ (GET ALL) Favorites
     #=============================

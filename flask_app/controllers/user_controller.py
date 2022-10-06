@@ -61,7 +61,7 @@ def user_login():
             "password" : pw_hash
         }
 
-        user_id = user_model.User.create(data)
+        user_id = user_model.User.create_user(data)
 
         session['user_id'] = user_id
         session["username"] = request.form["username"]

@@ -26,14 +26,19 @@ from flask_app.models import favorite_model, user_model, digimon_model
 #=====================================
 # Favorite Route [POST]
 #=====================================
-@app.route('/digimon/favorite', methods=['POST'])
-async def favorite_digimon():
+@app.route('/digimon/favorites/add', methods=['POST'])
+def favorite_digimon():
 
     if user_model.User.validate_logged_in():
-        data = {"digimon_id" : request.form["digimon_id"]}
-        #TODO add favorite method
+        data = {
+            "user_id" : session["user_id"],
+            "digimon_id" : request.form["digimon_id"]
+        }
 
-        return redirect(f'/digimon/{int(data["digimon_id"])}')
+        #TODO edit favorite method
+        favorite_id = favorite_model.Favorite.create_favorite(data)
+
+        return redirect(f'/digimon/{int(data["digimon_id"])}', favorite_id = favorite_id)
     else:
         flash("Please Log In")
         return redirect('/login')

@@ -104,7 +104,7 @@ class User:
    def validate_login(data):
       is_valid = True
 
-      user = User.get_by_email(data)
+      user = User.get_user_by_email(data)
 
       if not user:
          flash("Invalid email or password")
@@ -131,7 +131,7 @@ class User:
    # CREATE [one] instance
    #=============================
    @classmethod
-   def create(cls, data):
+   def create_user(cls, data):
 
       query = "INSERT INTO users ( username, email , password, created_at, updated_at) VALUES ( %(username)s , %(email)s , %(password)s , NOW(), NOW());"
 

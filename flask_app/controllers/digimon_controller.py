@@ -47,16 +47,6 @@ async def search_one_digimon():
         return redirect('/')
 
 #=====================================
-# Search Route [POST]
-#=====================================
-@app.route('/digimon/surprise', methods=['POST'])
-def surprise_one_digimon():
-
-    req = random.randrange(1, 1422)
-    
-    return redirect(f'/digimon/{req}')
-
-#=====================================
 # Digimon Catalogue Page Route
 #=====================================s
 # @app.route('/digimon')

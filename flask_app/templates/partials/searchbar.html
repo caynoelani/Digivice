@@ -1,4 +1,4 @@
-<section class="index__section-searchbar">
+<section class="section index__section-searchbar">
     <div class="index__form-container container ">
         <form action="/digimon/search" method="post" class="index__form">
             <label for="indexFormSearchbar" class="title title-secondary">Name or Number</label>
@@ -8,11 +8,9 @@
             </button>
             <p class="index__form-subtext">Explore our full list of Digimon!</p>
         </form>
-        <form action="/digimon/surprise" method="post" class="index__form">
-            <button type="submit" class="btn btn-surprise">
-                <i class="fa-solid fa-shuffle"></i>
-                Surprise Me!
-            </button>
-        </form>
+        <a href="/digimon/{{ range(1, 1422) | random }}" class="btn btn-surprise">
+            <i class="fa-solid fa-shuffle"></i>
+            Surprise Me!
+        </a>
     </div>
 </section>

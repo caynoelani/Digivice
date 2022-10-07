@@ -12,7 +12,7 @@
         
         <section class="section">
             <div class="digimon__btn-wrapper">
-                <a href="/digimon/{{(digimon_info.id - 1) | int}}" class="btn btn-carousel btn-carousel-left">
+                <a href="/digimon/{{ (digimon_info.id - 1) | int}}" class="btn btn-carousel btn-carousel-left">
                     <i class="fa-solid fa-chevron-left icon"></i>
                     <p>#{{ (digimon_info.id - 1) | int }}</p>
                 </a>
@@ -26,10 +26,10 @@
                 <h2 class="title title-secondary">#{{ digimon_info.id }} {{ digimon_info.name }}</h2>
                 <form action="/digimon/favorites/add" method="post" class="index__form">
                     <input type="hidden" name="digimon_id" value={{digimon_info.id}}>
-                    <button type='submit' class="btn btn-favorite">
+                    <a href="/favorites/add/{{digimon_info.id}}" class="btn btn-favorite">
                         <i class="fa-solid fa-star"></i>
                         Favorite
-                    </button>
+                    </a>
                 </form>
             </div>
         </section>

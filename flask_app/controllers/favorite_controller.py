@@ -26,13 +26,13 @@ from flask_app.models import favorite_model, user_model, digimon_model
 #=====================================
 # Favorite Route [POST]
 #=====================================
-@app.route('/digimon/favorites/add', methods=['POST'])
-def add_favorite():
+@app.route('/favorites/add/<req>')
+def add_favorite(req):
 
     if user_model.User.validate_logged_in():
         data = {
             "user_id" : session["user_id"],
-            "digimon_id" : request.form["digimon_id"]
+            "digimon_id" : req
         }
 
         favorite_id = favorite_model.Favorite.create_favorite(data)

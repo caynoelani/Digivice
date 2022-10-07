@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include './partials/metadata.html' %}
-    
-    <title>Digivice | Catalogue</title>
-</head>
-<body>
-    {% include "./partials/header.html" %}
+{% extends 'base.html' %}
 
-    <main>
-    </main>
-    {% include "./partials/footer.html" %}
-</body>
-</html>
+    <!-- TITLE -->
+    {% block title %}
+        Digivice | Catalogue
+    {% endblock %}
+
+    <!-- HERO -->
+    {% block hero %}
+        <div class="header__hero header__hero-catalogue">
+        </div>
+    {% endblock %}
+
+    <!-- MAIN -->
+    {% block main %}
+        <main class="main main__catalogue">
+
+        </main>
+    {% endblock %}

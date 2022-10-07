@@ -1,11 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include './partials/metadata.html' %}
-    <title>Digivice | Favorites</title>
-</head>
-<body>
-    {% include "./partials/header.html" %}
-    {% include "./partials/footer.html" %}
-</body>
-</html>
+{% extends 'base.html' %}
+
+    <!-- TITLE -->
+    {% block title %}
+        Digivice | Favorites
+    {% endblock %}
+
+    <!-- HERO -->
+    {% block hero %}
+        <div class="header__hero header__hero-favorites">
+        </div>
+    {% endblock %}
+
+    <!-- MAIN -->
+    {% block main %}
+        <main class="main main__favorites">
+
+        </main>
+    {% endblock %}

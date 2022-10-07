@@ -1,48 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include './partials/metadata.html' %}
+{% extends 'base.html' %}
 
-    <title>Digivice | Login</title>
-</head>
-<body>
-    {% include './partials/header.html' %}
+    <!-- TITLE -->
+    {% block title %}
+        Digivice | Login
+    {% endblock %}
 
-    <main class="main main__login">
-        <div class="loggin__toggleBtn-wrapper">
-            <button class="btn btn-login" id="loginBtn">Login</button>
-            <button class="btn btn-register" id="registerBtn">Register</button>
-        </div>
+    <!-- MAIN -->
+    {% block main %}
+        <main class="main main__login">
+            <div class="loggin__toggleBtn-wrapper">
+                <button class="btn btn-login" id="loginBtn">Login</button>
+                <button class="btn btn-register" id="registerBtn">Register</button>
+            </div>
 
-        <section class="section container login__login-form-wrapper">
-            <h2 class="title title-primary login__title">Login</h1>
-            <form action='/login' method='post' class="form login__form-login">
-                <input type="hidden" name="form_type" value="login">
-                <label for='email'>Email:</label>
-                <input type='text' name='email' id="email">
-                <label for='password'>Password:</label>
-                <input type='password' name='password' id="password">
-                <button type="submit" class="btn btn-submit">Login</button>
-            </form>
-        </section>
+            <section class="section container login__login-form-wrapper">
+                <h2 class="title title-primary login__title">Login</h1>
+                <form action='/login' method='post' class="form login__form-login">
+                    <input type="hidden" name="form_type" value="login">
+                    <label for='email'>Email:</label>
+                    <input type='text' name='email' id="email">
+                    <label for='password'>Password:</label>
+                    <input type='password' name='password' id="password">
+                    <button type="submit" class="btn btn-submit">Login</button>
+                </form>
+            </section>
 
-        <section class="section container login__register-form-wrapper">
-            <h2 class="title title-primary login__title">Register</h1>
-            <form action='/login' method='post' class="form login__form-register">
-                <input type="hidden" name="form_type" value="register">
-                <label class="" for='username'>Username:</label>
-                <input type='text' name='username' id="username">
-                <label for='email'>Email:</label>
-                <input type='text' name='email' id="email">
-                <label for='password'>Password:</label>
-                <input type='password' name='password' id="password">
-                <label for='confirmPassword'>Confirm Password:</label>
-                <input type='password' name='confirmPassword' id="confirmPassword">
-                <button type="submit" class="btn btn-submit">Register</button>
-            </form>
-        </section>
-    </main>
-
-    {% include './partials/footer.html' %}
-</body>
-</html>
+            <section class="section container login__register-form-wrapper">
+                <h2 class="title title-primary login__title">Register</h1>
+                <form action='/login' method='post' class="form login__form-register">
+                    <input type="hidden" name="form_type" value="register">
+                    <label class="" for='username'>Username:</label>
+                    <input type='text' name='username' id="username">
+                    <label for='email'>Email:</label>
+                    <input type='text' name='email' id="email">
+                    <label for='password'>Password:</label>
+                    <input type='password' name='password' id="password">
+                    <label for='confirmPassword'>Confirm Password:</label>
+                    <input type='password' name='confirmPassword' id="confirmPassword">
+                    <button type="submit" class="btn btn-submit">Register</button>
+                </form>
+            </section>
+        </main>
+    {% endblock %}

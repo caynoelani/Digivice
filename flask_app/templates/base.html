@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- JavaScript -->
+    <script src="../static/js/script.js" defer></script>
+
+    <!-- FONT AWESOME-->
+    <script src="https://kit.fontawesome.com/11b60066da.js" crossorigin="anonymous"></script>
+
+    <title>{% block title %}{% endblock %} </title>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href='#' class="nav__logo">
+                <img src="../static/assets/img/digimon_logo_vector.png" alt="" class="nav__logo-img">
+            </a>
+    
+            <ul class="nav__list" id="navList">
+                <li class="nav__list-item">
+                    <a href="/" class="nav__list-link">
+                        Home
+                    </a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="/catalogue" class="nav__list-link">
+                        Catalogue
+                    </a>
+                </li>
+    
+                {% if is_logged_in %}
+                <li class="nav__list-item">
+                    <a href="/favorites" class="nav__list-link">
+                        Favorites
+                    </a>
+                </li>
+    
+                <li class="nav__list-item">
+                    <a href="/logout" class="nav__list-link">
+                        Logout
+                    </a>
+                </li>
+    
+                {% else %}
+                <li class="nav__list-item">
+                    <a href="/login" class="nav__list-link">
+                        Login
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+    
+            <div class="nav__mobile" id="navMobile">
+                <span class="nav__mobile-toggler-icon">
+                    <i class="fa-solid fa-bars icon icon-menu icon-menu-open"></i>
+                </span>
+            </div>
+        </nav>
+    
+    <!-- HERO IMAGES -->
+    {% block hero %}
+    {% endblock %}
+
+    </header>
+
+    {% block main %}
+    {% endblock %}
+
+    <footer class="footer footer-main">
+        <div class="container footer__attribute-wrapper">
+            <div>
+                <p class="footer__attribute-text">Built by Cayla Bradley</p>
+            </div>
+            <div class="footer__attribute-socials">
+                <a href="https://www.linkedin.com/in/cayla-bradley-0761a0165/" target="_blank">
+                    <i class="fa-brands fa-linkedin fa-lg icon"></i>
+                </a>
+                <a href="https://github.com/caynoelani" target="_blank">
+                    <i class="fa-brands fa-github fa-lg icon"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

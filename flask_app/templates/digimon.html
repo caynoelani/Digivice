@@ -7,120 +7,122 @@
 
     <!-- MAIN -->
     {% block main %}
-        <main class="main main__digimon">
-            <section class="section">
-                <div class="digimon__btn-wrapper">
-                    <a href="/digimon/{{(digimon_info.id - 1) | int}}" class="btn btn-carousel btn-carousel-left">
-                        <i class="fa-solid fa-chevron-left icon"></i>
-                        <p>#{{ (digimon_info.id - 1) | int }}</p>
-                    </a>
-                    <a href="/digimon/{{(digimon_info.id + 1) | int}}" class="btn btn-carousel btn-carousel-right">
-                        <p>#{{ (digimon_info.id + 1) | int }}</p>
-                        <i class="fa-solid fa-chevron-right icon"></i>
-                    </a>
-                </div>
-                <div class="digimon__img-wrapper container">
-                    <img src={{digimon_info.images[0].href}} alt={{digimon_info.name}} class="digimon__img">
-                    <h2 class="title title-secondary">#{{ digimon_info.id }} {{ digimon_info.name }}</h2>
+    <main class="main main__digimon">
+        {% include './partials/searchbar.html'%}
+        
+        <section class="section">
+            <div class="digimon__btn-wrapper">
+                <a href="/digimon/{{(digimon_info.id - 1) | int}}" class="btn btn-carousel btn-carousel-left">
+                    <i class="fa-solid fa-chevron-left icon"></i>
+                    <p>#{{ (digimon_info.id - 1) | int }}</p>
+                </a>
+                <a href="/digimon/{{(digimon_info.id + 1) | int}}" class="btn btn-carousel btn-carousel-right">
+                    <p>#{{ (digimon_info.id + 1) | int }}</p>
+                    <i class="fa-solid fa-chevron-right icon"></i>
+                </a>
+            </div>
+            <div class="digimon__img-wrapper container">
+                <img src={{digimon_info.images[0].href}} alt={{digimon_info.name}} class="digimon__img">
+                <h2 class="title title-secondary">#{{ digimon_info.id }} {{ digimon_info.name }}</h2>
 
-                    <form action="/digimon/favorites/add" method="post" class="index__form">
-                        <input type="hidden" name="digimon_id" value={{digimon_info.id}}>
-                        <button type='submit' class="btn btn-favorite">
-                            <i class="fa-solid fa-star"></i>
-                            Favorite
-                        </button>
-                    </form>
-                </div>
-            </section>
+                <form action="/digimon/favorites/add" method="post" class="index__form">
+                    <input type="hidden" name="digimon_id" value={{digimon_info.id}}>
+                    <button type='submit' class="btn btn-favorite">
+                        <i class="fa-solid fa-star"></i>
+                        Favorite
+                    </button>
+                </form>
+            </div>
+        </section>
 
-            <section class="container section">
-                <div class="digimon__stats-wrapper">
-                    <h3 class="title">About {{digimon_info.name}}</h3>
-                    <div class="digimon__attributes-wrapper">
-                        <p>
-                            {% if digimon_info.descriptions == [] or ( (digimon_info.descriptions | length ) == 1 and digimon_info.descriptions[0].language != "en_us" ) %}
-                                N/A
-                            {% else %}
-                                {% for description in digimon_info.descriptions %}
-                                    {% if description.language == "en_us" %}
-                                        {{ description.description }}
-                                    {% endif %}
-                                {% endfor %}
-                            {% endif %}
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="container section">
-                <div class="digimon__stats-wrapper">
-                    <h3 class="title">Stats</h3>
-                    <div class="digimon__attributes-wrapper">
-                        {% if digimon_info.levels[0] %}
-                        <p>Level: {{ digimon_info.levels[0].level }}</p>
+        <section class="container section">
+            <div class="digimon__stats-wrapper">
+                <h3 class="title">About {{digimon_info.name}}</h3>
+                <div class="digimon__attributes-wrapper">
+                    <p>
+                        {% if digimon_info.descriptions == [] or ( (digimon_info.descriptions | length ) == 1 and digimon_info.descriptions[0].language != "en_us" ) %}
+                            N/A
                         {% else %}
-                        <p>Level: N/A</p>
-                        {% endif %}
-                        {% if digimon_info.attributes[0] %}
-                        <p>Attribute: {{ digimon_info.attributes[0].attribute }}</p>
-                        {% else %}
-                        <p>Attributes: N/A</p>
-                        {% endif %}
-                        {% if digimon_info.types[0] %}
-                        <p>Type: {{ digimon_info.types[0].type }}</p>
-                        {% else %}
-                        <p>Type: N/A</p>
-                        {% endif %}
-                    </div>
-                </div>
-            </section>
-
-            <section class="container section">
-                <div class="digimon__stats-wrapper">
-                    <h3 class="title">Fields</h3>
-                    <div class="digimon__attributes-wrapper">
-                        {% if digimon_info.fields == [] %}
-                                N/A
-                        {% else %}
-                            {% for field in digimon_info.fields %}
-                                {% if not field.field %}
-                                    <p>NONE</p>
-                                {% else %}
-                                    <p>{{ field.field }}</p>
+                            {% for description in digimon_info.descriptions %}
+                                {% if description.language == "en_us" %}
+                                    {{ description.description }}
                                 {% endif %}
                             {% endfor %}
                         {% endif %}
-                    </div>
+                    </p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="container section">
-                <div class="digimon__stats-wrapper">
-                    <h3 class="title">Skills</h3>
-                    <div class="digimon__attributes-wrapper">
-                        {% if digimon_info.skills == [] %}
+        <section class="container section">
+            <div class="digimon__stats-wrapper">
+                <h3 class="title">Stats</h3>
+                <div class="digimon__attributes-wrapper">
+                    {% if digimon_info.levels[0] %}
+                    <p>Level: {{ digimon_info.levels[0].level }}</p>
+                    {% else %}
+                    <p>Level: N/A</p>
+                    {% endif %}
+                    {% if digimon_info.attributes[0] %}
+                    <p>Attribute: {{ digimon_info.attributes[0].attribute }}</p>
+                    {% else %}
+                    <p>Attributes: N/A</p>
+                    {% endif %}
+                    {% if digimon_info.types[0] %}
+                    <p>Type: {{ digimon_info.types[0].type }}</p>
+                    {% else %}
+                    <p>Type: N/A</p>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+
+        <section class="container section">
+            <div class="digimon__stats-wrapper">
+                <h3 class="title">Fields</h3>
+                <div class="digimon__attributes-wrapper">
+                    {% if digimon_info.fields == [] %}
                             N/A
-                        {% else %}
-                            <table>
-                                {% for skill in digimon_info.skills %}
-                                <tr>
-                                    {% if skill.skill == "" or skill.skill == " " %}
-                                    <td> N/A </td>
-                                    {% else %}
-                                    <td>{{ skill.skill }}</td>
-                                    {% endif %}
-
-                                    {% if skill.description == "" or skill.description == " " %}
-                                    <td> N/A </td>
-                                    {% else %}
-                                    <td>{{ skill.description }}</td>
-                                    {% endif %}
-                                </tr>
-                                {% endfor %}
-                            </table>
-                        {% endif %}
-                    </div>
+                    {% else %}
+                        {% for field in digimon_info.fields %}
+                            {% if not field.field %}
+                                <p>NONE</p>
+                            {% else %}
+                                <p>{{ field.field }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
+
+        <section class="container section">
+            <div class="digimon__stats-wrapper">
+                <h3 class="title">Skills</h3>
+                <div class="digimon__attributes-wrapper">
+                    {% if digimon_info.skills == [] %}
+                        N/A
+                    {% else %}
+                        <table>
+                            {% for skill in digimon_info.skills %}
+                            <tr>
+                                {% if skill.skill == "" or skill.skill == " " %}
+                                <td> N/A </td>
+                                {% else %}
+                                <td>{{ skill.skill }}</td>
+                                {% endif %}
+
+                                {% if skill.description == "" or skill.description == " " %}
+                                <td> N/A </td>
+                                {% else %}
+                                <td>{{ skill.description }}</td>
+                                {% endif %}
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+    </main>
     {% endblock %}

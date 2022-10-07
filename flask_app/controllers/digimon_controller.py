@@ -26,7 +26,7 @@ from flask_app.models import favorite_model, user_model, digimon_model
 # Search Route [POST]
 #=====================================
 @app.route('/digimon/search', methods=['POST'])
-async def search_digimon():
+async def search_one_digimon():
 
     req = request.form["indexSearchbar"]
 
@@ -50,7 +50,7 @@ async def search_digimon():
 # Search Route [POST]
 #=====================================
 @app.route('/digimon/surprise', methods=['POST'])
-def surprise_digimon():
+def surprise_one_digimon():
 
     req = random.randrange(1, 1422)
     
@@ -68,7 +68,7 @@ def surprise_digimon():
 #     return render_template('digimon.html', is_logged_in = is_logged_in, digimon_list = digimon_list)
 
 #=====================================
-# Digimon [ONE] Page Routes
+# Digimon [ONE] Page Route
 #=====================================
 @app.route('/digimon/<req>')
 async def read_one_digimon(req):

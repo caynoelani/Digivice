@@ -70,28 +70,15 @@ def surprise_digimon():
 #=====================================
 # Digimon [ONE] Page Routes
 #=====================================
-@app.route('/digimon/<int:req>',)
-async def read_one_digimon_int(req):
-
-    is_logged_in = user_model.User.validate_logged_in()
-
-    digimon_info = await digimon_model.get_digimon_info(req)
-
-    if 'error' in digimon_info:
-        flash("Please enter a valid name or number")
-        return redirect('/')
-
-    return render_template('digimon.html', is_logged_in = is_logged_in, digimon_info = digimon_info)
-
 @app.route('/digimon/<req>')
-async def read_one_digimon_name(req):
+async def read_one_digimon(req):
 
-    is_logged_in = user_model.User.validate_logged_in()
+    if req.isalpha() or req.isnumeric():
 
-    digimon_info = await digimon_model.get_digimon_info(req)
+        digimon_info = await digimon_model.get_digimon_info(req)
 
     if 'error' in digimon_info:
         flash("Please enter a valid name or number")
         return redirect('/')
 
-    return render_template('digimon.html', is_logged_in = is_logged_in, digimon_info = digimon_info)
+    return render_template('digimon.html', digimon_info = digimon_info)

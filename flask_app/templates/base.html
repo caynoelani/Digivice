@@ -35,7 +35,7 @@
                     </a>
                 </li>
     
-                {% if is_logged_in %}
+                {% if 'user_id' in session %}
                 <li class="nav__list-item">
                     <a href="/favorites" class="nav__list-link">
                         Favorites

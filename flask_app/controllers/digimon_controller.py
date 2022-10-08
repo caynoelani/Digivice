@@ -50,7 +50,7 @@ async def search_one_digimon():
 # Digimon Catalogue Page Route
 #=====================================s
 # @app.route('/digimon')
-# async def render_digimon():
+# async def read_all_digimon():
 #     is_logged_in = user_model.User.validate_logged_in()
 
 #     digimon_list = await digimon_model.get_digimon_list()

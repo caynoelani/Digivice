@@ -37,7 +37,7 @@ def add_favorite(req):
 
         favorite_id = favorite_model.Favorite.create_favorite(data)
 
-        return redirect(f'/digimon/{int(data["digimon_id"])}')
+        return redirect(f'/digimon/{data["digimon_id"]}')
 
     else:
         flash("Please Log In")

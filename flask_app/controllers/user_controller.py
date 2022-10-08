@@ -28,7 +28,7 @@ from flask_app.models import user_model
 #=====================================
 
 @app.route('/login', methods=["POST", 'GET'])
-def user_login():
+def login_page():
     
     if request.method == 'POST':
         if request.form["form_type"] == "login":

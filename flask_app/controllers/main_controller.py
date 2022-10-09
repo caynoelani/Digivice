@@ -34,18 +34,6 @@ def index_page():
     return render_template('index.html', view = 'index', is_logged_in = is_logged_in)
 
 #=====================================
-# Favorites Page Routes
-#=====================================
-@app.route('/favorites')
-def favorites_page():
-    is_logged_in = user_model.User.validate_logged_in()
-
-    if is_logged_in:
-        return render_template('favorites.html', view = 'favorites', is_logged_in = is_logged_in)
-    
-    return redirect('/login')
-
-#=====================================
 # Catalogue Page Routes
 #=====================================    
 @app.route('/catalogue')

@@ -5,6 +5,7 @@
 #=====================================
 # Import app
 #=====================================
+from pydoc import classname
 from flask_app import app
 
 #=====================================
@@ -71,4 +72,14 @@ async def read_one_digimon(req):
         flash("Please enter a valid name or number")
         return redirect('/')
 
-    return render_template('digimon.html', digimon_info = digimon_info)
+    is_logged_in = user_model.User.validate_logged_in()
+
+    if is_logged_in:
+        #is favorited method
+        className = ""
+        buttonText= ""
+    else:
+        className = ""
+        buttonText= ""
+
+    return render_template('digimon.html', digimon_info = digimon_info, className = className)

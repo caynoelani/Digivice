@@ -24,13 +24,10 @@
             <div class="digimon__img-wrapper container">
                 <img src={{digimon_info.images[0].href}} alt={{digimon_info.name}} class="digimon__img">
                 <h2 class="title title-secondary">#{{ digimon_info.id }} {{ digimon_info.name }}</h2>
-                <form action="/digimon/favorites/add" method="post" class="index__form">
-                    <input type="hidden" name="digimon_id" value={{digimon_info.id}}>
-                    <a href="{{ url_for('create_favorite', req=digimon_info.id) }}" class="btn btn-favorite">
-                        <i class="fa-solid fa-star"></i>
-                        Favorite
-                    </a>
-                </form>
+                <a href="{{ url_for('create_favorite', req=digimon_info.id) }}" class="btn btn-favorite">
+                    <i class="fa-solid fa-star"></i>
+                    Favorite
+                </a>
             </div>
         </section>
 

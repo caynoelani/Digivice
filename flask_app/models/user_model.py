@@ -201,7 +201,7 @@ class User:
    @classmethod
    def get_user_with_favorites(cls, data):
 
-      query = "SELECT * FROM users JOIN favorites ON users.id = favorites.user_id WHERE users.id = %(user_id)s"
+      query = "SELECT * FROM users LEFT JOIN favorites ON users.id = favorites.user_id WHERE users.id = %(user_id)s"
 
       results = connectToMySQL(cls.db).query_db(query, data)
 

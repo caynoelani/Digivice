@@ -75,11 +75,14 @@ async def read_one_digimon(req):
     is_logged_in = user_model.User.validate_logged_in()
 
     if is_logged_in:
-        #is favorited method
-        className = ""
-        buttonText= ""
-    else:
-        className = ""
-        buttonText= ""
 
-    return render_template('digimon.html', digimon_info = digimon_info, className = className)
+        data = {
+            "digimon_number" : req,
+            "user_id" : session["user_id"]
+        }
+
+        is_favorited = user_model.User.validate_favorited(data)
+
+        print(is_favorited)
+
+    return render_template('digimon.html', digimon_info = digimon_info, is_favorited = is_favorited)

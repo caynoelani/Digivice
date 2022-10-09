@@ -6,6 +6,7 @@
 # Import connectToMySQL function
 # Import App
 #===================================
+from urllib import request
 from flask_app import app
 from flask_app.config.mysqlconnection import connectToMySQL
 
@@ -71,9 +72,9 @@ class User:
 #***************STATIC METHODS****************
 #*********************************************
 
-#===================================
-# Validate Register
-#===================================
+   #===================================
+   # Validate Register
+   #===================================
    @staticmethod
    def validate_register(data):
       is_valid = True
@@ -103,9 +104,9 @@ class User:
 
       return is_valid
 
-#===================================
-# Validate Login
-#===================================
+   #===================================
+   # Validate Login
+   #===================================
    @staticmethod
    def validate_login(data):
       is_valid = True
@@ -122,12 +123,31 @@ class User:
          
       return is_valid
 
-#===================================
-# Validate Logged In
-#===================================
+   #===================================
+   # Validate Logged In
+   #===================================
    @staticmethod
    def validate_logged_in():
       return ("user_id" in session)
+
+   #=============================
+   # Validate Favorited
+   #=============================
+   @staticmethod
+   def validate_favorited(data):
+      is_valid = False
+
+      user = User.get_user_with_favorites(data)
+
+      for favorite in user.favorites:
+         print(favorite.number)
+         print(data["digimon_number"])
+         if int(favorite.number) == int(data["digimon_number"]):
+            is_valid = True
+
+      print(is_valid)
+
+      return is_valid
 
 #*********************************************
 #************CLASS METHODS (CRUD)*************

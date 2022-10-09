@@ -24,10 +24,17 @@
             <div class="digimon__img-wrapper container">
                 <img src={{digimon_info.images[0].href}} alt={{digimon_info.name}} class="digimon__img">
                 <h2 class="title title-secondary">#{{ digimon_info.id }} {{ digimon_info.name }}</h2>
+                {% if is_favorited == False %}
                 <a href="{{ url_for('create_favorite', req=digimon_info.id) }}" class="btn btn-favorite">
                     <i class="fa-solid fa-star"></i>
                     Favorite
                 </a>
+                {% elif is_favorited == True %}
+                <a href="{{ url_for('delete_favorite', req=digimon_info.id) }}" class="btn btn-favorite btn-remove-favorite">
+                    <i class="fa-solid fa-star"></i>
+                    Remove Favorite
+                </a>
+                {% endif %}
             </div>
         </section>
 

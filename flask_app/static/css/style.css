@@ -181,8 +181,6 @@ input, input:focus {
     width: 2rem;
 }
 
-
-
 .btn-surprise {
     margin-top: 2rem;
     text-transform: uppercase;
@@ -231,6 +229,10 @@ input, input:focus {
 
 .digimon__img-wrapper .btn-favorite i {
     color: var(--color-secondary);
+}
+
+.digimon__img-wrapper .btn-remove-favorite i {
+    color: #fed755 !important;
 }
 
 .digimon__stats-wrapper {

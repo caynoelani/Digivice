@@ -46,18 +46,7 @@ async def search_one_digimon():
     else:
         flash("Please enter a valid name or number")
         return redirect('/')
-
-#=====================================
-# Digimon Catalogue Page Route
-#=====================================s
-# @app.route('/digimon')
-# async def read_all_digimon():
-#     is_logged_in = user_model.User.validate_logged_in()
-
-#     digimon_list = await digimon_model.get_digimon_list()
-    
-#     return render_template('digimon.html', is_logged_in = is_logged_in, digimon_list = digimon_list)
-
+        
 #=====================================
 # Digimon [ONE] Page Route
 #=====================================

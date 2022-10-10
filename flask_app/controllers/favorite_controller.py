@@ -39,12 +39,16 @@ async def favorites_page():
 
         user_with_favorites = user_model.User.get_user_with_favorites(data)
 
-        favorite_reqs = []
+        if len(user_with_favorites.favorites) > 0:
+            favorite_reqs = []
 
-        for favorite in user_with_favorites.favorites:
-            favorite_reqs.append(favorite.number)
+            for favorite in user_with_favorites.favorites:
+                favorite_reqs.append(favorite.number)
 
-        favorite_list = await digimon_model.get_digimon_info(favorite_reqs)
+            favorite_list = await digimon_model.get_digimon_info(favorite_reqs)
+
+        else:
+            favorite_list = False
 
         return render_template('favorites.html', favorite_list = favorite_list)
     
@@ -78,9 +82,9 @@ def delete_favorite(req):
 
     data = {
         "user_id" : session["user_id"],
-        "digimon_id" : req
+        "digimon_number" : req
     }
 
-    user_model.User.remove_favorite(data)
+    favorite_model.Favorite.delete_favorite_by_number(data)
 
-    return redirect(f'/digimon/{data["digimon_id"]}')
+    return redirect('/favorites')

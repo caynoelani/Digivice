@@ -26,7 +26,6 @@ async def get_digimon_info(req):
         for digimon_number in req:
             url = f'http://digi-api.com/api/v1/digimon/{digimon_number}'
             one_digimon = requests.get(url).json()
-            # one_digimon = digimon_info.json()
             digimon_info.append(one_digimon)
 
     else:

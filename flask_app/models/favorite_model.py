@@ -78,9 +78,12 @@ class Favorite:
         return cls(results[0])
 
     #=============================
-    # Delete (one) Favorite by ID
+    # Delete (one) Favorite by Number
     #=============================
     @classmethod
-    def delete_favorite_by_id(cls, data):
+    def delete_favorite_by_number(cls, data):
 
-        return
+        query = 'DELETE FROM favorites WHERE user_id = %(user_id)s AND number = %(digimon_number)s;'
+        results = connectToMySQL(cls.db).query_db(query, data)
+
+        return results

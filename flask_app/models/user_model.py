@@ -140,7 +140,7 @@ class User:
       user = User.get_user_with_favorites(data)
 
       for favorite in user.favorites:
-         if int(favorite.number) == int(data["digimon_number"]):
+         if favorite.number and int(favorite.number) == int(data["digimon_number"]):
             is_valid = True
 
       return is_valid

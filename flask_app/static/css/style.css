@@ -264,12 +264,7 @@ input, input:focus {
     font-size: .75rem;
     background-color: var(--color-dark);
     color: var(--color-primary);
-}
-
-.footer__spacer{
-    height: 3rem;
-    width: 100%;
-    background-color: var(--color-light);
+    height: 8rem;
 }
 
 .footer__attribute-wrapper {

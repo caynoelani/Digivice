@@ -76,16 +76,11 @@ def create_favorite(req):
 @app.route('/favorites/delete/<req>')
 def delete_favorite(req):
 
-    if user_model.User.validate_logged_in():
-        data = {
-            "user_id" : session["user_id"],
-            "digimon_id" : req
-        }
+    data = {
+        "user_id" : session["user_id"],
+        "digimon_id" : req
+    }
 
-        # favorite_id = favorite_model.Favorite.delete_favorite_by_id(data)
+    user_model.User.remove_favorite(data)
 
-        return redirect(f'/digimon/{data["digimon_id"]}')
-
-    else:
-        flash("Please Log In")
-        return redirect('/login')
+    return redirect(f'/digimon/{data["digimon_id"]}')

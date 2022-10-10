@@ -82,7 +82,7 @@ def delete_favorite(req):
             "digimon_id" : req
         }
 
-        # favorite_id = favorite_model.Favorite.remove_favorite(data)
+        # favorite_id = favorite_model.Favorite.delete_favorite_by_id(data)
 
         return redirect(f'/digimon/{data["digimon_id"]}')
 

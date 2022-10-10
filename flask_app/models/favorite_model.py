@@ -54,7 +54,6 @@ class Favorite:
         favorite = cls.get_favorite_by_number(data)
 
         if favorite:
-            print("already favorited")
             return False
             
         query = "INSERT INTO favorites (number, created_at, updated_at, user_id) VALUES (%(digimon_id)s, NOW(), NOW(), %(user_id)s)"
@@ -72,9 +71,16 @@ class Favorite:
         query = "SELECT * FROM favorites WHERE number = %(digimon_id)s;"
 
         results = connectToMySQL(cls.db).query_db(query, data)
-        print(results)
 
         if len(results) < 1:
             return False
             
         return cls(results[0])
+
+    #=============================
+    # Delete (one) Favorite by ID
+    #=============================
+    @classmethod
+    def delete_favorite_by_id(cls, data):
+
+        return

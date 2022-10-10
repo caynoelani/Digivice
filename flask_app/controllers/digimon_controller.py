@@ -83,6 +83,4 @@ async def read_one_digimon(req):
 
         is_favorited = user_model.User.validate_favorited(data)
 
-        print(is_favorited)
-
     return render_template('digimon.html', digimon_info = digimon_info, is_favorited = is_favorited)

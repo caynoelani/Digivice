@@ -10,9 +10,14 @@ from flask_app import app
 #=====================================
 # Import Modules/Packages
 #=====================================
-from flask import render_template, redirect, request, flash, session
+from flask import render_template, redirect, request, flash, session, url_for
 import requests
 import json
+
+#=====================================
+# Import Controllers
+#=====================================
+from flask_app.controllers import user_controller
 
 #=====================================
 # Import Models
@@ -52,7 +57,7 @@ async def favorites_page():
 
         return render_template('favorites.html', favorite_list = favorite_list)
     
-    return redirect('/login')
+    return redirect(url_for('login_page'))
 
 #=====================================
 # Favorite Route [POST]

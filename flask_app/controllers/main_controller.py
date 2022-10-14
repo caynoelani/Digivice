@@ -35,7 +35,7 @@ def index_page():
 
 #=====================================
 # Catalogue Page Routes
-#=====================================    
+#=====================================
 @app.route('/catalogue')
 def catalogue_page():
     is_logged_in = user_model.User.validate_logged_in()

@@ -30,11 +30,9 @@ def login_required(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         if 'user_id' in session:
-            print('logged in')
             result = func(*args, **kwargs)
             return result
         else:
-            print('not logged in')
             flash("Please login")
             return redirect(url_for('login_page'))
     return wrapper

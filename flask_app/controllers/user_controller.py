@@ -10,7 +10,8 @@ from flask_app import app
 #=====================================
 # Import Modules/Packages
 #=====================================
-from flask import redirect, render_template, session, request
+from flask import redirect, render_template, session, request, flash, url_for
+import functools
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
@@ -22,6 +23,21 @@ from flask_app.models import user_model
 #******************************************************
 #***********************ROUTES*************************
 #******************************************************
+#=====================================
+# Login Required Decorator
+#=====================================
+def login_required(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        if 'user_id' in session:
+            print('logged in')
+            result = func(*args, **kwargs)
+            return result
+        else:
+            print('not logged in')
+            flash("Please login")
+            return redirect(url_for('login_page'))
+    return wrapper
 
 #=====================================
 # Login/Register Route
@@ -72,6 +88,7 @@ def login_page():
 # Logout Route
 #=====================================
 @app.route('/logout')
+@login_required
 def logout():
     
     session.clear()

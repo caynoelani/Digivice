@@ -15,7 +15,7 @@
 
             <section class="section container login__login-form-wrapper">
                 <h2 class="title title-primary login__title">Login</h1>
-                <form action='/login' method='post' class="form login__form-login">
+                <form action="{{url_for('login_post')}}" method='post' class="form login__form-login">
                     <input type="hidden" name="form_type" value="login">
                     <label for='email'>Email:</label>
                     <input type='text' name='email' id="email">
@@ -27,7 +27,7 @@
 
             <section class="section container login__register-form-wrapper">
                 <h2 class="title title-primary login__title">Register</h1>
-                <form action='/login' method='post' class="form login__form-register">
+                <form action="{{url_for('login_post')}}" method='post' class="form login__form-register">
                     <input type="hidden" name="form_type" value="register">
                     <label class="" for='username'>Username:</label>
                     <input type='text' name='username' id="username">

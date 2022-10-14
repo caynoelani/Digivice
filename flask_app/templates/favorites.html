@@ -17,10 +17,8 @@
             <div class="favorite__main-heading section container">
                 <h1 class="title title-primary">{{ session['username'] }}'s Favorites</h1>
             </div>
-            {% if favorite_list == False %}
-                <div></div>
-            {% else %}
                 {% for favorite in favorite_list %}
+                    {% if favorite.images is sameas true  %}
                 <div class="digimon__img-wrapper container">
                     <img src={{favorite.images[0].href}} alt={{favorite.name}} class="digimon__img">
                     <h2 class="title title-secondary">#{{ favorite.id }} {{ favorite.name }}</h2>
@@ -32,7 +30,13 @@
                         </a>
                     </form>
                 </div>
+                    {% else %}
+                    <div class="digimon__img-wrapper container">
+                        <h2>
+                            Uh oh! Looks like you still have to add some favorites!
+                        </h2>
+                    </div>
+                    {% endif %}
                 {% endfor %}
-            {% endif %}
         </main>
     {% endblock %}

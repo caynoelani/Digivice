@@ -1,7 +1,7 @@
 # Digivice
 
 ### About
-***Digivice*** is a project created to practice fullstack CRUD applications in the `Python` stack.
+***Digivice*** is a project created to practice full stack CRUD applications in the `Python` stack.
 
 The project is based on an apparatus from hit children's franchise *Digimon*, known as a *digivice*, where users can view all the creatures and stats of Digimon's digital world.
 

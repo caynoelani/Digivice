@@ -18,7 +18,7 @@
                 <h1 class="title title-primary">{{ session['username'] }}'s Favorites</h1>
             </div>
                 {% for favorite in favorite_list %}
-                    {% if favorite.images is defined  %}
+                    {% if favorite.id is defined  %}
                 <div class="digimon__img-wrapper container">
                     <img src={{favorite.images[0].href}} alt={{favorite.name}} class="digimon__img">
                     <h2 class="title title-secondary">#{{ favorite.id }} {{ favorite.name }}</h2>

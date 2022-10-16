@@ -60,7 +60,7 @@ async def favorites_page():
     return redirect(url_for('login_page'))
 
 #=====================================
-# Favorite Route [POST]
+# Create Favorite Route [POST]
 #=====================================
 @app.route('/favorites/add/<req>')
 def create_favorite(req):
@@ -80,7 +80,7 @@ def create_favorite(req):
         return redirect('/login')
 
 #=====================================
-# Favorite Route [POST]
+# Delete Favorite Route [POST]
 #=====================================
 @app.route('/favorites/delete/<req>')
 def delete_favorite(req):

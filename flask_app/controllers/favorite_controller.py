@@ -11,18 +11,35 @@ from flask_app import app
 # Import Modules/Packages
 #=====================================
 from flask import render_template, redirect, request, flash, session, url_for
-import requests
-import json
+import requests, json, functools
+
 
 #=====================================
 # Import Controllers
 #=====================================
-from flask_app.controllers import user_controller
+from flask_app.controllers.user_controller import login_required
 
 #=====================================
 # Import Models
 #=====================================
 from flask_app.models import favorite_model, user_model, digimon_model
+
+#******************************************************
+#**********************Decorators**********************
+#******************************************************
+
+#=====================================
+# Login Required Decorator
+#=====================================
+def login_required(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        if 'user_id' in session:
+            return func(*args, **kwargs)
+        else:
+            flash("Please login")
+            return redirect(url_for('login_page'))
+    return wrapper
 
 
 #******************************************************

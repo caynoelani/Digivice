@@ -55,9 +55,11 @@ async def read_one_digimon(req):
     if req.isalpha() or req.isnumeric():
 
         digimon_info = await digimon_model.get_digimon_info(req)
+        print(digimon_info)
 
     if 'error' in digimon_info:
         flash("Please enter a valid name or number")
+        print('flash messaging')
         return redirect('/')
 
     is_logged_in = user_model.User.validate_logged_in()
@@ -70,5 +72,8 @@ async def read_one_digimon(req):
         }
 
         is_favorited = user_model.User.validate_favorited(data)
+
+    else:
+        is_favorited = False
 
     return render_template('digimon.html', digimon_info = digimon_info, is_favorited = is_favorited)

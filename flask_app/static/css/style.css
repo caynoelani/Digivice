@@ -1,7 +1,7 @@
 /* FONT IMPORTS */
 @font-face {
-    font-family: 'Pixel Digivolve';
-    src: url('../assets/fonts/pixel-digivolve-font/PixelDigivolve-mOm9.ttf') format('ttf');
+    font-family: Pixel Digivolve;
+    src: url('../assets/fonts/pixel-digivolve-font/PixelDigivolve-mOm9.ttf') format('truetype');
 }
 
 /* RESETS */
@@ -72,6 +72,10 @@ img {
     margin-top: 2rem;
 }
 
+.flash-message {
+    color: red;
+}
+
 /* NAV */
 .nav {
     background-color: var(--color-primary);
@@ -126,6 +130,8 @@ img {
     cursor: pointer;
 }
 
+/* HEADER */
+
 .header__hero {
     background-size: cover;
     background-position: center;
@@ -148,7 +154,6 @@ img {
 .index__form-container {
     background-color: var(--color-secondary);
     color: var(--color-primary);
-    margin-top: .5rem;
     padding: 2rem;
 }
 

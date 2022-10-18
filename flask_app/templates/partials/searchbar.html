@@ -1,5 +1,5 @@
-<section class="index__section-searchbar">
-    <div class="index__form-container container ">
+<section class="search__section-searchbar">
+    <div class="search__form-container container ">
         {% with messages = get_flashed_messages() %}<!-- declare a variable called messages -->
             {% if messages %}<!-- check if there are any messages -->
                 {% for message in messages %}<!-- loop through the messages -->
@@ -7,16 +7,18 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
-        <form action="/digimon/search" method="post" class="index__form">
-            <label for="indexFormSearchbar" class="title title-secondary">Name or Number</label>
-            <input type="text" class="index__form-searchbar" id="indexSearchbar" name="indexSearchbar">
-            <button type="submit" class=" btn btn-submit">
-                <i class="fa-solid fa-magnifying-glass fa-lg icon"></i>
-            </button>
-            <p class="index__form-subtext">Explore our full list of Digimon!</p>
+        <form action="/digimon/search" method="post" class="search__form">
+            <label for="searchFormSearchbar" class="title title-secondary">Name or Number</label>
+            <div class="search__form-searchbar-wrapper">
+                <input type="text" class="search__form-searchbar" id="searchSearchbar" name="searchSearchbar">
+                <button type="submit" class=" btn btn-submit">
+                    <i class="fa-solid fa-magnifying-glass fa-lg icon"></i>
+                </button>
+            </div>
+            <p class="search__form-subtext">Explore the full list of Digimon! Type on a Digimon's name or number</p>
         </form>
         <a href="{{ url_for('read_one_digimon', req= range(1, 1423) | random) }}" class="btn btn-surprise">
-            <i class="fa-solid fa-shuffle"></i>
+            <i class="fa-solid fa-shuffle icon-surprise"></i>
             Surprise Me!
         </a>
     </div>

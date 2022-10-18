@@ -4,6 +4,11 @@
     src: url('../assets/fonts/pixel-digivolve-font/PixelDigivolve-mOm9.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: Poppins Regular;
+    src: url('../assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
 /* RESETS */
 *{
     margin: 0;
@@ -27,7 +32,7 @@ html {
     --font-size-title-secondary: 2rem;
     --font-size-title-primary: 3rem;
 
-    --font-family-default: Helvetica, Arial, sans-serif;
+    --font-family-default: 'Poppins Regular', Helvetica, Arial, sans-serif;
     --font-family-title-primary: 'Pixel Digivolve', Helvetica, Arial, sans-serif;
 }
 
@@ -61,7 +66,8 @@ img {
 .title-primary {
     font-family: var(--font-family-title-primary);
     font-size: var(--font-size-title-primary);
-    color: var(--color-tertiary)
+    color: var(--color-tertiary);
+    text-shadow: 1px 2px var(--color-dark);
 }
 
 .title-secondary {
@@ -131,7 +137,6 @@ img {
 }
 
 /* HEADER */
-
 .header__hero {
     background-size: cover;
     background-position: center;
@@ -150,47 +155,63 @@ img {
     background-image: url('../assets/img/digimon-catalogue.jpg');
 }
 
-/* INDEX */
-.index__form-container {
+/* SEARCHBAR */
+.search__form-container {
     background-color: var(--color-secondary);
     color: var(--color-primary);
     padding: 2rem;
 }
 
-input, input:focus {
-    margin-top: .25rem;
-    padding: 0 .5rem;
-    line-height: 2rem;
-    width: 85%;
-    border: 1px solid inherit;
-    border-radius: .25rem;
-    font-size: 1rem;
-    color: var(--color-secondary);
+.search__form-searchbar-wrapper {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    margin-top: 1rem;
 }
 
-.index__form-subtext {
+input, input:focus {
+    padding: 0 .5rem;
+    line-height: 2rem;
+    width: 90%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: var(--color-secondary);
+    border-radius:  .5rem 0 0 .5rem;
+}
+
+.search__form-subtext {
     margin-top: .5rem;
+    font-size: small;
 }
 
 .btn {
     border: none;
-    height: 2rem;
-    padding: .5rem;
-    border-radius: .25rem;
     background-color: var(--color-tertiary);
     color: var(--color-primary);
     cursor: pointer;
 }
 
-.index__form .btn-submit {
-    width: 2rem;
+.search__form .btn-submit {
+    width: 10%;
+    padding: .5rem;
+    border-radius:  0 .5rem .5rem 0;
 }
 
 .btn-surprise {
-    margin-top: 2rem;
+    margin-top: 1rem;
     text-transform: uppercase;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    padding: .5rem;
 }
 
+.icon-surprise {
+    margin-right: .5rem;
+}
 
 /* ONE DIGIMON PAGE */
 .digimon__btn-wrapper {

@@ -82,6 +82,19 @@ img {
     color: red;
 }
 
+.btn {
+    border: none;
+    outline: none;
+    background-color: var(--color-tertiary);
+    color: var(--color-primary);
+    cursor: pointer;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 /* NAV */
 .nav {
     background-color: var(--color-primary);
@@ -185,26 +198,17 @@ input, input:focus {
     font-size: small;
 }
 
-.btn {
-    border: none;
-    background-color: var(--color-tertiary);
-    color: var(--color-primary);
-    cursor: pointer;
-}
 
 .search__form .btn-submit {
     width: 10%;
     padding: .5rem;
     border-radius:  0 .5rem .5rem 0;
+    display: block;
 }
 
 .btn-surprise {
     margin-top: 1rem;
     text-transform: uppercase;
-    border-radius: .5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 2rem;
     padding: .5rem;
 }

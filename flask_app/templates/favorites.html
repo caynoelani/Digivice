@@ -15,7 +15,7 @@
     {% block main %}
         <main class="main main__favorites">
             <div class="favorite__main-heading section container">
-                <h1 class="title title-primary">{{ session['username'] }}'s Favorites</h1>
+                <h1 class="title title-primary">Favorites</h1>
             </div>
                 {% for favorite in favorite_list %}
                     {% if favorite.id is defined  %}

@@ -28,7 +28,7 @@ from flask_app.models import favorite_model, user_model, digimon_model
 @app.route('/digimon/search', methods=['POST'])
 async def search_one_digimon():
 
-    req = request.form["indexSearchbar"]
+    req = request.form["searchbar"]
 
     if req.isnumeric():
         return redirect(f'/digimon/{int(req)}')

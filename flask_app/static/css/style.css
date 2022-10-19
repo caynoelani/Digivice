@@ -63,6 +63,10 @@ img {
     width: 100%;
 }
 
+.title {
+    text-align: center;
+}
+
 .title-primary {
     font-family: var(--font-family-title-primary);
     font-size: var(--font-size-title-primary);
@@ -278,8 +282,24 @@ input, input:focus {
 }
 
 /* FAVORITES */
+.favorites__img-wrapper {
+    margin-top: 1rem;
+    padding: 2rem;
+    background-color: var(--color-primary);
+}
 
+.favorites__img-wrapper h2 {
+    text-align: center;
+    color: var(--color-secondary);
+}
 
+.favorites__img-wrapper .btn-favorite i {
+    color: var(--color-primary);
+}
+
+.favorites__img-wrapper .btn-remove-favorite i {
+    color: #fed755 !important;
+}
 
 /* FOOTER */
 .footer {

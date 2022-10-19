@@ -14,29 +14,33 @@
     <!-- MAIN -->
     {% block main %}
         <main class="main main__favorites">
-            <div class="favorite__main-heading section container">
+            <div class="favorite__main-heading container">
                 <h1 class="title title-primary">Favorites</h1>
             </div>
-                {% for favorite in favorite_list %}
-                    {% if favorite.id is defined  %}
-                <div class="digimon__img-wrapper container">
-                    <img src={{favorite.images[0].href}} alt={{favorite.name}} class="digimon__img">
-                    <h2 class="title title-secondary">#{{ favorite.id }} {{ favorite.name }}</h2>
-                    <form action="/digimon/favorites/add" method="post" class="index__form">
-                        <input type="hidden" name="digimon_id" value={{favorite.id}}>
+            <div class="favorites__favorites-list container">
+            {% for favorite in favorite_list %}
+                {% if favorite.id is defined  %}
+                <div class="favorites__img-wrapper">
+                    <a href="{{url_for('read_one_digimon', req=favorite.id)}}">
+                        <img src={{favorite.images[0].href}} alt={{favorite.name}} class="favorites__img">
+                        <h2 class="title title-secondary">#{{ favorite.id }} {{ favorite.name }}</h2>
+                    </a>
+                    <form action="/favorites/favorites/add" method="post" class="index__form">
+                        <input type="hidden" name="favorites_id" value={{favorite.id}}>
                         <a href="{{ url_for('delete_favorite', req=favorite.id) }}" class="btn btn-favorite btn-remove-favorite">
                             <i class="fa-solid fa-star icon-favorite"></i>
                             Remove Favorite
                         </a>
                     </form>
                 </div>
-                    {% else %}
-                    <div class="digimon__img-wrapper container">
-                        <h2>
-                            Uh oh! Looks like you still have to add some favorites!
-                        </h2>
-                    </div>
-                    {% endif %}
-                {% endfor %}
+                {% else %}
+                <div class="favorites__img-wrapper">
+                    <h2>
+                        Uh oh! Looks like you still have to add some favorites!
+                    </h2>
+                </div>
+                {% endif %}
+            {% endfor %}
+            </div>
         </main>
     {% endblock %}

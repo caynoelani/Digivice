@@ -84,6 +84,7 @@ img {
 }
 
 .flash-message {
+    text-align: center;
     color: red;
 }
 
@@ -98,10 +99,6 @@ img {
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
-}
-
-.btn-submit {
-    width: 100%;
 }
 
 
@@ -221,6 +218,7 @@ input, input:focus {
     text-transform: uppercase;
     height: 2rem;
     padding: .5rem;
+    width: 100%;
 }
 
 .icon-surprise, .icon-favorite {
@@ -242,13 +240,16 @@ input, input:focus {
     font-size: 2rem;
     padding: .5rem;
     border-radius: .25rem;
-
 }
 
 .digimon__img-wrapper {
     margin-top: 1rem;
     padding: 2rem;
     background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .digimon__img-wrapper h2 {
@@ -306,7 +307,6 @@ input, input:focus {
 }
 
 /* LOGIN */
-
 .login__login-form-wrapper, .login__register-form-wrapper {
     display: none;
 }
@@ -370,7 +370,6 @@ input, input:focus {
     font-size: .75rem;
     background-color: var(--color-dark);
     color: var(--color-primary);
-    height: 8rem;
 }
 
 .footer__attribute-wrapper {

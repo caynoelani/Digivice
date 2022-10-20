@@ -100,6 +100,10 @@ img {
     text-transform: uppercase;
 }
 
+.btn-submit {
+    width: 100%;
+}
+
 
 /* NAV */
 .nav {
@@ -212,7 +216,7 @@ input, input:focus {
     display: block;
 }
 
-.btn-surprise, .btn-favorite {
+.btn-surprise, .btn-favorite, .main__login form .btn-submit {
     margin-top: 1rem;
     text-transform: uppercase;
     height: 2rem;
@@ -299,6 +303,24 @@ input, input:focus {
 
 .favorites__img-wrapper .btn-remove-favorite i {
     color: #fed755 !important;
+}
+
+/* LOGIN */
+.main__login form {
+    background-color: var(--color-primary);
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: .75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__login form input{
+    width: 100%;
+    border-radius: .5rem;
+    margin-top: .5rem;
 }
 
 /* FOOTER */

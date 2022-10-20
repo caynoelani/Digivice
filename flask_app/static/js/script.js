@@ -1,9 +1,9 @@
+//NAVBAR VARIABLES
 const navMobile = document.getElementById("navMobile");
 const navList = document.getElementById("navList");
 
 
 // NAVBAR FUNCTIONALITY
-
 navMobile.addEventListener("click", () => {
     navList.classList.toggle("active");
 })

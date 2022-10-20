@@ -8,8 +8,8 @@
     <!-- MAIN -->
     {% block main %}
         <main class="main main__login">
-            <div class="loggin__toggleBtn-wrapper">
-                <button class="btn btn-login" id="loginBtn">Login</button>
+            <div class="login__toggleBtn-wrapper section container">
+                <button class="btn btn-login active" id="loginBtn">Login</button>
                 <button class="btn btn-register" id="registerBtn">Register</button>
             </div>
             {% with messages = get_flashed_messages() %}
@@ -19,33 +19,35 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
+            <div class="login__form-container container">
+                <section class="login__login-form-wrapper active" id="loginForm">
+                    <h2 class="title title-primary login__title">Login</h1>
+                    <form action="{{url_for('login_post')}}" method='post' class="form login__form-login">
+                        <input type="hidden" name="form_type" value="login">
+                        <label for='email'>Email:</label>
+                        <input type='text' name='email' id="email">
+                        <label for='password'>Password:</label>
+                        <input type='password' name='password' id="password">
+                        <button type="submit" class="btn btn-submit">Login</button>
+                    </form>
+                </section>
+    
+                <section class="login__register-form-wrapper" id="registerForm">
+                    <h2 class="title title-primary login__title">Register</h1>
+                    <form action="{{url_for('login_post')}}" method='post' class="form login__form-register">
+                        <input type="hidden" name="form_type" value="register">
+                        <label class="" for='username'>Username:</label>
+                        <input type='text' name='username' id="username">
+                        <label for='email'>Email:</label>
+                        <input type='text' name='email' id="email">
+                        <label for='password'>Password:</label>
+                        <input type='password' name='password' id="password">
+                        <label for='confirmPassword'>Confirm Password:</label>
+                        <input type='password' name='confirmPassword' id="confirmPassword">
+                        <button type="submit" class="btn btn-submit">Register</button>
+                    </form>
+                </section>
+            </div>
 
-            <section class="section container login__login-form-wrapper">
-                <h2 class="title title-primary login__title">Login</h1>
-                <form action="{{url_for('login_post')}}" method='post' class="form login__form-login">
-                    <input type="hidden" name="form_type" value="login">
-                    <label for='email'>Email:</label>
-                    <input type='text' name='email' id="email">
-                    <label for='password'>Password:</label>
-                    <input type='password' name='password' id="password">
-                    <button type="submit" class="btn btn-submit">Login</button>
-                </form>
-            </section>
-
-            <section class="section container login__register-form-wrapper">
-                <h2 class="title title-primary login__title">Register</h1>
-                <form action="{{url_for('login_post')}}" method='post' class="form login__form-register">
-                    <input type="hidden" name="form_type" value="register">
-                    <label class="" for='username'>Username:</label>
-                    <input type='text' name='username' id="username">
-                    <label for='email'>Email:</label>
-                    <input type='text' name='email' id="email">
-                    <label for='password'>Password:</label>
-                    <input type='password' name='password' id="password">
-                    <label for='confirmPassword'>Confirm Password:</label>
-                    <input type='password' name='confirmPassword' id="confirmPassword">
-                    <button type="submit" class="btn btn-submit">Register</button>
-                </form>
-            </section>
         </main>
     {% endblock %}

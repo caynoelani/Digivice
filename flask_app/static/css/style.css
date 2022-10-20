@@ -306,6 +306,11 @@ input, input:focus {
 }
 
 /* LOGIN */
+
+.login__login-form-wrapper, .login__register-form-wrapper {
+    display: none;
+}
+
 .main__login form {
     background-color: var(--color-primary);
     padding: 1rem;
@@ -317,10 +322,45 @@ input, input:focus {
     align-items: center;
 }
 
+.login__form-container .active{
+    display: block;
+}
+
+.main__login form label{
+    margin-top: .5rem;
+}
+
 .main__login form input{
     width: 100%;
     border-radius: .5rem;
-    margin-top: .5rem;
+    margin-top: .25rem;
+}
+
+.login__toggleBtn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn-login, .btn-register {
+    border-radius: 0;
+    background-color: var(--color-secondary);
+    padding: .5rem;
+    display: block;
+    width: 50%;
+}
+
+.btn-login {
+    border-radius: .5rem 0 0 .5rem;
+}
+
+.btn-register {
+    border-radius: 0 .5rem .5rem 0;
+}
+
+.login__toggleBtn-wrapper .active {
+    background-color: var(--color-tertiary);
 }
 
 /* FOOTER */

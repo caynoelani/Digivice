@@ -67,7 +67,7 @@ async def read_one_digimon(req):
     if is_logged_in:
 
         data = {
-            "digimon_number" : req,
+            "digimon_number" : digimon_info['id'],
             "user_id" : session["user_id"]
         }
 
